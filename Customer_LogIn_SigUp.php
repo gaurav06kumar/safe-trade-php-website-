@@ -41,8 +41,8 @@
                         <div class="navbar-form navbar-right">
                             <ul class="nav navbar-nav">
                                 <li><a href="index.php">Home</a></li>
-                                <li class="active"><a href="Login.php">Customer<span class="sr-only">(current)</span></a></li>
-                                <li><a href="Trader Login.php" >Trader</a></li>
+                                <li class="active"><a href="Customer_LogIn_SignUp.php">Customer<span class="sr-only">(current)</span></a></li>
+                                <li><a href="Trader_Login_SignUp.php" >Trader</a></li>
                             </ul>
                     
                         </div>
