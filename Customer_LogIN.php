@@ -10,15 +10,13 @@ if (isset($_POST['submit'])) {
    $password=$_POST['pass'];
 	    $login = $user->check_login($emailusername, $password);
 	    if ($login) {
-	        // Registration Success
-	       //echo "pass";
-		 echo  $_SESSION['uid'];
+	       
 		 ?>
 		 <script type="text/javascript">
 			window.open('Customer_Dash.php','_self');
 		 </script>
 		 <?php
- 
+
 	    } else {
 	        // Registration Failed
           ?>
