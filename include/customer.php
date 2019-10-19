@@ -38,7 +38,7 @@
 
 	/*** for login process ***/
 		public function check_login($emailusername, $password){
-        $password = md5($password);
+        //$password = md5($password);
 
 		$query = "SELECT uid from customerinfo WHERE uemail='$emailusername' or uname='$emailusername' and upass='$password'";
 
@@ -51,6 +51,7 @@
 		if ($count_row == 1) {
 	            $_SESSION['login'] = true; // this login var will use for the session thing
 	            $_SESSION['uid'] = $user_data['uid'];
+							$_SESSION['name']="gaurav";
 	            return true;
 	        }
 
@@ -61,7 +62,7 @@
 
 
 	public function get_fullname($uid){
-		$query = "SELECT fullname FROM users WHERE uid = $uid";
+		$query = "SELECT fullname FROM customerinfo WHERE uid = $uid";
 
 		$result = $this->db->query($query) or die($this->db->error);
 
@@ -69,23 +70,6 @@
 		echo $user_data['fullname'];
 
 	}
-
-	/*** starting the session ***/
-	public function get_session(){
-	    return $_SESSION['login'];
-	    }
-
-	public function user_logout() {
-	    $_SESSION['login'] = FALSE;
-		unset($_SESSION);
-	    session_destroy();
-	    }
-
-
-
-
-
-
 
 
 
