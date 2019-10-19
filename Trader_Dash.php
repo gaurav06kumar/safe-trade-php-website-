@@ -1,3 +1,11 @@
+<?php
+session_start();
+include_once 'include/tradesmen.php';
+$t_user = new tradesmen();
+$tid=$_SESSION['TID']
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +24,10 @@
 
 </head>
 <body>
+  <h1>
+
+                Hello <?php $t_user->get_fullname($tid); ?>
+    </h1>
 <div class="container">
 
 
