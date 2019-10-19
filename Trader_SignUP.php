@@ -196,10 +196,6 @@ if (isset($_POST['signup'])){
 						<input type="password" class="form-control" id="pass" name="pass" required>
 					</div>
 
-					<div class="form-group">
-						<label for="cpass">Password</label>
-						<input type="password" class="form-control" id="cpass" name="cpass" required>
-					</div>
 
 
 					<div class="form-group" >
