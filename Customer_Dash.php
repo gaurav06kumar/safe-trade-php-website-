@@ -1,3 +1,10 @@
+<?php
+session_start();
+include_once 'include/customer.php';
+$user = new User();
+$uid = $_SESSION['uid'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +24,14 @@
 
 </head>
 <body>
+
+
+
+  <h1>
+
+                Hello <?php $user->get_fullname($uid); ?>
+    </h1>
+
 <div class="container">
 
 
