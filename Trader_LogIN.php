@@ -12,13 +12,13 @@ if (isset($_POST['submit'])) {
 	    if ($login) {
 	        // Registration Success
 	       //echo "pass";
-		 echo  $_SESSION['TID'];
+		 //echo  $_SESSION['TID'];
 		 ?>
 		 <script type="text/javascript">
 			 window.open('Trader_Dash.php','_self');
 		 </script>
 		 <?php
- 
+
 	    } else {
 	        // Registration Failed
 	       // echo 'Wrong username or password';
