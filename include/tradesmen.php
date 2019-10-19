@@ -11,7 +11,7 @@
 
 		public function reg_user($name,$username,$password,$email){
 			//echo "k";
- 
+
 			//checking if the username or email is available in db
 			$query = "SELECT * FROM tradesmeninfo WHERE T_username='$username' OR T_email='$email'";
 
@@ -47,7 +47,7 @@
 		$count_row = $result->num_rows;
 
 		if ($count_row == 1) {
-	            $_SESSION['login'] = true; // this login var will use for the session thing
+
 	            $_SESSION['TID'] = $user_data['TID'];
 	            return true;
 	        }
@@ -58,26 +58,16 @@
 	}
 
 
-	public function get_fullname($uid){
+	public function get_fullname($tid){
 		$query = "SELECT T_fname FROM tradesmeninfo WHERE TID = $tid";
 
 		$result = $this->db->query($query) or die($this->db->error);
 
 		$user_data = $result->fetch_array(MYSQLI_ASSOC);
-		echo $user_data['fullname'];
+		echo $user_data['T_fname'];
 
 	}
 
-	/*** starting the session ***/
-	public function get_session(){
-	    return $_SESSION['login'];
-	    }
-
-	public function user_logout() {
-	    $_SESSION['login'] = FALSE;
-		unset($_SESSION);
-	    session_destroy();
-	    }
 
 
 
