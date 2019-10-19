@@ -36,7 +36,7 @@ if (isset($_POST['signup'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
+    <title>Trader SignUp</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,8 +103,8 @@ if (isset($_POST['signup'])){
 				</button>
 
 				<!-- You'll have to add padding in your image on the top and right of a few pixels (CSS Styling will break the navbar) -->
-				<a class="pull-left"><img src="Images/YY.svg" width="60px" height="60px"></a>
-				<a class="navbar-brand" href="#">Hamilton Massage Center</a>
+				<a class="pull-left"><img src="Images/Logo.png" width="60px" height="60px"></a>
+        	    <a class="navbar-brand" href="#">&nbsp Safe Trade</a>
 
 			</div>
 
