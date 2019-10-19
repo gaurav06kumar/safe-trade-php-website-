@@ -11,8 +11,14 @@ if (isset($_POST['submit'])) {
 	    $login = $user->check_login($emailusername, $password);
 	    if ($login) {
 	        // Registration Success
-	       echo "pass";
-         echo  $_SESSION['uid'];
+	       //echo "pass";
+		 echo  $_SESSION['uid'];
+		 ?>
+		 <script type="text/javascript">
+			window.open('Customer_Dash.php','_self');
+		 </script>
+		 <?php
+ 
 	    } else {
 	        // Registration Failed
           ?>
@@ -27,7 +33,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign In</title>
+    <title>Customer LogIn</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
@@ -87,8 +93,8 @@ if (isset($_POST['submit'])) {
 				</button>
 
 				<!-- You'll have to add padding in your image on the top and right of a few pixels (CSS Styling will break the navbar) -->
-				<a class="pull-left"><img src="Images/YY.svg" width="60px" height="60px"></a>
-				<a class="navbar-brand" href="#">Hamilton Massage Center</a>
+				<a class="pull-left"><img src="Images/Logo.png" width="60px" height="60px"></a>
+        	    <a class="navbar-brand" href="#">&nbsp Safe Trade</a>
 
 			</div>
 
