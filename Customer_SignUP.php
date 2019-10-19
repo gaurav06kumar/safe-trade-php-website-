@@ -35,7 +35,7 @@ if (isset($_POST['signup'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
+    <title>Customer SignUp</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,30 +45,30 @@ if (isset($_POST['signup'])){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <style>
-
+	
         body{
 
-            background: url(Images/signupbg.jpg) no-repeat;
-			background-size: cover;
-			background-attachment: fixed;
-
-        }
+		background: url(Images/YinYang.jpg) no-repeat;
+		width: 100%;
+		height: 782px;
+		}
 
 		.form-container{
 
-			padding: 50px 60px;
-			margin-top: 10vh;
-			-webkit-box-shadow: -1px 2px 61px 12px rgba(0,0,0,0.75);
-			-moz-box-shadow: -1px 2px 61px 12px rgba(0,0,0,0.75);
-			box-shadow: -1px 2px 61px 12px rgba(0,0,0,0.75);
-			color: black;
+		padding: 50px 60px;
+		margin-top: 10vh;
+		-webkit-box-shadow: -1px 2px 61px 12px rgba(0,0,0,0.75);
+		-moz-box-shadow: -1px 2px 61px 12px rgba(0,0,0,0.75);
+		box-shadow: -1px 2px 61px 12px rgba(0,0,0,0.75);
+		color: black;
+		}
+
+		#signup_btn{
+
+		background-color: royalblue;
 		}
 
 
-    #signup_btn{
-
-        background-color: royalblue;
-    }
 
 
 
@@ -102,8 +102,8 @@ if (isset($_POST['signup'])){
 				</button>
 
 				<!-- You'll have to add padding in your image on the top and right of a few pixels (CSS Styling will break the navbar) -->
-				<a class="pull-left"><img src="Images/YY.svg" width="60px" height="60px"></a>
-				<a class="navbar-brand" href="#">Hamilton Massage Center</a>
+				<a class="pull-left"><img src="Images/Logo.png" width="60px" height="60px"></a>
+        	    <a class="navbar-brand" href="#">&nbsp Safe Trade</a>
 
 			</div>
 
