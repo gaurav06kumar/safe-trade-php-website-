@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Create Estimate</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -46,7 +46,7 @@
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
-                    <li><a href="Customer_Job.php">Back </a></li>
+                    <li><a href="Trader_Dash.php">Back </a></li>
                     <li><a href="Trader_LogOut.php">LogOut </a></li>
 
 
@@ -70,7 +70,7 @@
     <div class="col-md-4 col-sm-4 col-xs-12" id="form-container">
 
         <div class="form-header" align="center">
-            <h1 id="h1">Create Job</h1>
+            <h1 id="h1">Create Estimate</h1>
         </div>
 
         <form action="#" method="post"  class="booking-form">
@@ -81,22 +81,22 @@
             
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <span class="form-label">Labour Cost</span>
-                        <input class="form-control" type="text">
+                        <span for="l_cost" class="form-label">Labour Cost</span>
+                        <input class="form-control" type="number" id="l_cost" name="l_cost" required>
                     </div>
                 </div>
 
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <span class="form-label">Material Cost</span>
-                        <input class="form-control" type="tel">
+                        <span for="m_cost" class="form-label">Material Cost</span>
+                        <input class="form-control" type="number" id="m_cost" name="m_cost">
                     </div>
                 </div>
 
                 <div class="col-sm-4">
-                    <div class="form-group">
+                    <div for="t_cost" class="form-group">
                         <span class="form-label">Transport Cost</span>
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="number" id="t_cost" name="t_cost" required>
                     </div>
                 </div>
 
@@ -105,23 +105,23 @@
             <div class="row">
 
                 <div class="col-sm-6">
-                    <div class="form-group">
+                    <div for="tcost" class="form-group">
                         <span class="form-label">Total Cost</span>
-                        <input class="form-control" type="text">
+                        <input class="form-control" type="number" id="tcost" name="tcost" required>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
-                    <div class="form-group">
+                    <div for="exp_date" class="form-group">
                         <span class="form-label">Expected Date</span>
-                        <input class="form-control" type="date" required>
+                        <input class="form-control" type="date" id="exp_date" name="exp_date" required>
                     </div>
                 </div>
 
             </div>
 
             <div class="form-btn">
-                <button class="submit-btn">Post Estimate</button>
+                <button type="submit" name="p_est" value="p_est" class="submit-btn">Post Estimate</button>
             </div>
 
         </form>
