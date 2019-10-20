@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Create Job</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -79,46 +79,46 @@
         <form action="#" method="post"  class="booking-form">
 
             <div class="form-group">
-                <span class="form-label">Job Name</span>
-                <input class="form-control" type="text" placeholder="Enter the job name">
+                <span for="j_name" class="form-label">Job Name</span>
+                <input class="form-control" type="text" id="j_name" name="j_name" placeholder="Enter the job name">
             </div>
 
             <div class="form-group">
-                <span class="form-label">Location</span>
-                <input class="form-control" type="tel" placeholder="Enter location of the job">
+                <span for="loc" class="form-label">Location</span>
+                <input class="form-control" type="text" id="loc" name="loc" placeholder="Enter location of the job">
             </div>
 
             <div class="form-group">
-                <span class="form-label">Discription</span>
-                <input class="form-control" type="text" placeholder="Enter job discription">
+                <span for="discr" class="form-label">Discription</span>
+                <input class="form-control" type="text" id="discr" name="discr" placeholder="Enter job discription">
             </div>
 
             <div class="form-group">
-                <span class="form-label">Expected Cost</span>
-                <input class="form-control" type="text" placeholder="Enter an expected cost">
+                <span for="exp_cos" class="form-label">Expected Cost</span>
+                <input class="form-control" type="number" id="exp_cos" name="exp_cos" placeholder="Enter an expected cost">
             </div>
 
-            
+
             <div class="row">
 
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <span class="form-label">Start Date</span>
-                        <input class="form-control" type="date" required>
+                        <span for="s_date" class="form-label">Start Date</span>
+                        <input class="form-control" type="date" id="s_date" name="s_date" required>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <span class="form-label">End Date</span>
-                        <input class="form-control" type="date" required>
+                        <span for="e_date" class="form-label">End Date</span>
+                        <input class="form-control" type="date" id="e_date" name="e_date" required>
                     </div>
                 </div>
 
             </div>
 
             <div class="form-btn">
-                <button class="submit-btn">Post Now</button>
+                <button type="submit" name="p_job" value="p_job" class="submit-btn">Post Now</button>
             </div>
         </form>
 
