@@ -14,20 +14,13 @@ if (isset($_POST['p_job'])) {
     $uid=$_SESSION['uid'];
 	   $result = $job->createjob($jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid);
 	    if ($result) {
-          // job creation success
-        ?>
-   		 <script type="text/javascript">
-   			window.open('Create_Job.php?ss=1','_self');
-   		 </script>
-   		 <?php
+
+       echo "sucss";
+
 
 	    } else {
-	        // job creation Failed
-          ?>
-          <script type="text/javascript">
-            window.open('Create_Job.php?ss=0','_self');
-          </script>
-          <?php
+	        // Registration Failed
+       echo "fail";
 	    }
 	}
 ?>
@@ -84,7 +77,14 @@ if (isset($_POST['p_job'])) {
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
-                    <li><a href="Customer_Dash.php">Back </a></li>
+                    <li><a onclick="goBack()">Back</a></li>
+
+                    <script>
+                    function goBack() {
+                    window.history.back();
+                    }
+                    </script>   
+                    <li><a href="My_Jobs.php">My Jobs </a></li>                                    
                     <li><a href="Customer_LogOut.php">LogOut </a></li>
 
 
@@ -112,21 +112,6 @@ if (isset($_POST['p_job'])) {
         </div>
 
         <form action="#" method="post"  class="booking-form">
-
-          <?php
-              if(isset($_GET['ss']))
-              {
-                if($_GET['ss']==1)
-                {
-                  echo "<legend> Job created Successfully.</legend>";
-                }
-                if($_GET['ss']==0)
-                {
-                  echo "<legend style='color:orange;'> Failed.</legend>";
-                }
-
-              }
-          ?>
 
             <div class="form-group">
                 <span for="j_name" class="form-label">Job Name</span>
