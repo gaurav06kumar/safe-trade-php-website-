@@ -18,6 +18,10 @@ $uid = $_SESSION['uid'];
 
     <style>
 
+        .jumbotron{
+            background-color:#2E2D88;
+            color:white;
+        }
 
 
     </style>
@@ -27,10 +31,7 @@ $uid = $_SESSION['uid'];
 
 
 
-  <h1>
 
-                Hello <?php $user->get_fullname($uid); ?>
-    </h1>
 
 <div class="container">
 
@@ -66,9 +67,8 @@ $uid = $_SESSION['uid'];
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
-
+                    <li><a href="Create_Job.php">Create Job </a></li>
                     <li><a href="Customer_LogOut.php">LogOut </a></li>
-
 
                 </ul>
 
@@ -77,6 +77,11 @@ $uid = $_SESSION['uid'];
     </div><!-- /.container-fluid -->
 </nav>
 
+<div class="jumbotron" align="center">
+
+<h1>Welcome <?php $user->get_fullname($uid); ?></h1>
+
+</div>
 
 </div>
 
