@@ -51,7 +51,7 @@
 		if ($count_row == 1) {
 	            $_SESSION['login'] = true; // this login var will use for the session thing
 	            $_SESSION['uid'] = $user_data['uid'];
-							$_SESSION['name']="gaurav";
+						 
 	            return true;
 	        }
 
