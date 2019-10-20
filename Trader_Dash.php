@@ -18,16 +18,17 @@ $tid=$_SESSION['TID']
 
 
     <style>
+        .jumbotron{
+            background-color:#2E2D88;
+            color:white;
+        }
 
 
     </style>
 
 </head>
 <body>
-  <h1>
 
-                Hello <?php $t_user->get_fullname($tid); ?>
-    </h1>
 <div class="container">
 
 
@@ -72,6 +73,13 @@ $tid=$_SESSION['TID']
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+
+<div class="jumbotron" align="center">
+
+<h1>Welcome <?php $t_user->get_fullname($tid); ?></h1>
+
+</div>
 
 
 </div>
