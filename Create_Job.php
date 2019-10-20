@@ -1,3 +1,31 @@
+<?php
+session_start();
+include_once 'include/job.php';
+$job = new Job();
+
+if (isset($_POST['p_job'])) {
+	//	extract($_POST);
+    $jname=$_POST['j_name'];
+    $loc=$_POST['loc'];
+    $descrip=$_POST['discr'];
+    $estcost=$_POST['exp_cos'];
+    $sdate=$_POST['s_date'];
+    $edate=$_POST['e_date'];
+    $uid=$_SESSION['uid'];
+	   $result = $job->createjob($jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid);
+	    if ($result) {
+
+       echo "sucss";
+
+
+	    } else {
+	        // Registration Failed
+       echo "fail";
+	    }
+	}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,6 +161,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
+
 </body>
 </html>
