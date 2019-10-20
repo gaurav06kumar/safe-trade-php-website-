@@ -14,13 +14,20 @@ if (isset($_POST['p_job'])) {
     $uid=$_SESSION['uid'];
 	   $result = $job->createjob($jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid);
 	    if ($result) {
-
-       echo "sucss";
-
+          // job creation success
+        ?>
+   		 <script type="text/javascript">
+   			window.open('Create_Job.php?ss=1','_self');
+   		 </script>
+   		 <?php
 
 	    } else {
-	        // Registration Failed
-       echo "fail";
+	        // job creation Failed
+          ?>
+          <script type="text/javascript">
+            window.open('Create_Job.php?ss=0','_self');
+          </script>
+          <?php
 	    }
 	}
 ?>
@@ -105,6 +112,21 @@ if (isset($_POST['p_job'])) {
         </div>
 
         <form action="#" method="post"  class="booking-form">
+
+          <?php
+              if(isset($_GET['ss']))
+              {
+                if($_GET['ss']==1)
+                {
+                  echo "<legend> Job created Successfully.</legend>";
+                }
+                if($_GET['ss']==0)
+                {
+                  echo "<legend style='color:orange;'> Failed.</legend>";
+                }
+
+              }
+          ?>
 
             <div class="form-group">
                 <span for="j_name" class="form-label">Job Name</span>
