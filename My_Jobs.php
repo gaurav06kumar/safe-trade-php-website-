@@ -82,6 +82,20 @@
 
 
 </div>
+<?php
+session_start();
+include_once 'include/job.php';
+$job = new Job();
+
+if ( true) {
+	//	extract($_POST);
+
+     $id=$_SESSION['uid'];
+     
+	   $result = $job-> view_my_job($id);
+
+	}
+?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
