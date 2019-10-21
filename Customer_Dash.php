@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'include/customer.php';
+
 $user = new User();
 $uid = $_SESSION['uid'];
 
@@ -68,7 +69,7 @@ $uid = $_SESSION['uid'];
                 <ul class="nav navbar-nav">
 
                     <li><a href="Create_Job.php">Create Job </a></li>
-                    <li><a href="My_Jobs.php">My Jobs </a></li>                   
+                    <li><a href="My_Jobs.php">My Jobs </a></li>
                     <li><a href="Customer_LogOut.php">LogOut </a></li>
 
                 </ul>
