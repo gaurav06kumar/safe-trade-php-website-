@@ -91,9 +91,9 @@ if ( true) {
 	//	extract($_POST);
 
      $id=$_SESSION['uid'];
-     
-	   $result = $job-> view_my_job($id);
 
+	   $result = $job-> view_my_job($id);
+     
 	}
 ?>
 
