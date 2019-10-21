@@ -49,9 +49,11 @@ class Job {
 			<tbody>
 			<?php
 //  $row = $qresult->fetch_assoc(); fetch(PDO::FETCH_ASSOC)
+
 			while($res = $result->fetch_assoc())
 			{
-
+        if($res!=0)
+				{
 					?>
 
 					<div class="container-fluid">
@@ -65,12 +67,15 @@ class Job {
 							<td><?= $res['Start_Date']; ?> </td>
 							<td><?= $res['End_Date']; ?> </td>
 
-
-
 							</tr>
 					</div>
 
 			<?php
+				}
+				if($res==0)
+				{
+					return "Sorry No Records Found..";
+				}
 			}?>
 			</tbody>
 			</table>
