@@ -1,5 +1,5 @@
 <?php
-	include "db_config.php";
+	 require_once("db_config.php");
 	class User{
 		protected $db;
 		public function __construct(){
@@ -51,7 +51,7 @@
 		if ($count_row == 1) {
 	            $_SESSION['login'] = true; // this login var will use for the session thing
 	            $_SESSION['uid'] = $user_data['uid'];
-						 
+
 	            return true;
 	        }
 
