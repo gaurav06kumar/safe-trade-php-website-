@@ -17,17 +17,8 @@ $uid = $_SESSION['uid'];
     <title>Customer Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 
-
-    <style>
-
-        .jumbotron{
-            background-color:#2E2D88;
-            color:white;
-        }
-
-
-    </style>
 
 </head>
 <body>
@@ -36,11 +27,10 @@ $uid = $_SESSION['uid'];
 
 
 
-<div class="container">
 
 
 <!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -82,14 +72,20 @@ $uid = $_SESSION['uid'];
     </div><!-- /.container-fluid -->
 </nav>
 
-<div class="jumbotron" align="center">
+<div class="container" align="center">
 
 <h1>Welcome <?php $user->get_fullname($uid); ?></h1>
 
-</div>
 
 </div>
-    <?php $job->view_all_job();?>
+
+<div class="container" id="job_list">
+        <?php $job->view_all_job();?>
+    </div>
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 

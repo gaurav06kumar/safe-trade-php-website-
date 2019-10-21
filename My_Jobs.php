@@ -8,6 +8,7 @@
     <title>Trader Dashboard</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 
 
     <style>
@@ -22,11 +23,10 @@
 </head>
 <body>
 
-<div class="container">
 
 
 <!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -56,13 +56,8 @@
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
-                    <li><a onclick="goBack()">Back</a></li>
-
-                    <script>
-                    function goBack() {
-                    window.history.back();
-                    }
-                    </script>
+                    <li><a href="Customer_Profile.php">Profile </a></li>
+                    <li><a href="Customer_Dash.php">Back</a></li>
                     <li><a href="Trader_LogOut.php">LogOut </a></li>
 
 
@@ -74,14 +69,13 @@
 </nav>
 
 
-<div class="jumbotron" align="center">
+<div class="container" align="center">
 
 <h1>My Jobs</h1>
 
 </div>
 
-
-</div>
+<div class="container" id="job_list">
 <?php
 session_start();
 include_once 'include/job.php';
@@ -99,7 +93,7 @@ if ( true) {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+</div>
 
 </body>
 </html>

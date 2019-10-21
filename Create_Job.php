@@ -47,16 +47,16 @@ if (isset($_POST['p_job'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
 
 
-<div class="container">
 
 
 <!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
 
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,14 +86,9 @@ if (isset($_POST['p_job'])) {
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
-                    <li><a onclick="goBack()">Back</a></li>
-
-                    <script>
-                    function goBack() {
-                    window.history.back();
-                    }
-                    </script>
+                    <li><a href="Customer_Dash.php">Back</a></li>
                     <li><a href="My_Jobs.php">My Jobs </a></li>
+                    <li><a href="Customer_Profile.php">Profile </a></li>
                     <li><a href="Customer_LogOut.php">LogOut </a></li>
 
 
@@ -105,7 +100,6 @@ if (isset($_POST['p_job'])) {
 </nav>
 
 
-</div>
 
 
 

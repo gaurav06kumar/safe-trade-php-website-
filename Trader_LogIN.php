@@ -70,11 +70,10 @@ if (isset($_POST['submit'])) {
 <body>
 
 
-  <div class="container">
 
 
 	<!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -134,7 +133,6 @@ if (isset($_POST['submit'])) {
 	</nav>
 
 
-	</div>
 
 	<!-- Login section -->
 	<div class="row">
