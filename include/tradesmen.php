@@ -1,5 +1,5 @@
 <?php
-	include "db_config.php";
+	require_once("db_config.php");
 	class tradesmen{
 		protected $db;
 		public function __construct(){
