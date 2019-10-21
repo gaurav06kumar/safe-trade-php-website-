@@ -46,6 +46,7 @@
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
+                    <li><a href="Trader_Profile.php">Profile </a></li>
                     <li><a href="Trader_Dash.php">Back </a></li>
                     <li><a href="Trader_LogOut.php">LogOut </a></li>
 

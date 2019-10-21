@@ -17,15 +17,6 @@ $tid=$_SESSION['TID']
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 
-    <style>
-        .jumbotron{
-            background-color:#2E2D88;
-            color:white;
-        }
-
-
-    </style>
-
 </head>
 <body>
 
@@ -62,7 +53,7 @@ $tid=$_SESSION['TID']
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
-
+                    <li><a href="Trader_Profile.php">Profile </a></li>
                     <li><a href="Trader_LogOut.php">LogOut </a></li>
 
 
@@ -74,7 +65,7 @@ $tid=$_SESSION['TID']
 </nav>
 
 
-<div class="jumbotron" align="center">
+<div class="Container" align="center">
 
 <h1>Welcome <?php $t_user->get_fullname($tid); ?></h1>
 
