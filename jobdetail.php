@@ -18,29 +18,17 @@ $data=$job->view_job($apid);
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
- 	<!-- css -->
-     <style>
-       body{
+   <!-- css -->
+   <link rel="stylesheet" href="css/style.css">
 
-       background: url(Images/Massage2.jpg) no-repeat;
-       background-size: cover;
-       background-attachment: fixed;
-
-       }
-
-
-
-
-     </style>
 
  </head>
 
 
- <div class="container">
 
 
  <!-- navbar -->
- <nav class="navbar navbar-default">
+ <nav class="navbar navbar-inverse">
    <div class="container-fluid">
 
      <!-- Brand and toggle get grouped for better display -->
@@ -56,8 +44,8 @@ $data=$job->view_job($apid);
 
        </button>
 
-       <a class="pull-left"><img src="Images/YY.svg" width="60px" height="60px"></a>
-       <a class="navbar-brand" href="#">Hamilton Massage Center</a>
+        <a class="pull-left"><img src="Images/Logo.png" width="60px" height="60px"></a>
+        <a class="navbar-brand" href="#">&nbsp Safe Trade</a>
 
      </div>
 
@@ -65,8 +53,12 @@ $data=$job->view_job($apid);
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <div class="navbar-form navbar-right">
          <ul class="nav navbar-nav">
-           <li><a href="user_logout.php">Logout</a></li>
-           <li>  <a href="viewAppointment.php">Back</a></li>
+
+
+          <li><a href="Create_Job.php">Create Job </a></li>
+          <li><a href="My_Jobs.php">My Jobs </a></li>
+          <li>  <a href="Customer_Dash.php">Back</a></li>
+          <li><a href="Customer_LogOut.php">Logout</a></li>
 
          </ul>
 
@@ -76,14 +68,13 @@ $data=$job->view_job($apid);
  </nav>
 
 
- </div>
 
 
 
 
 
  <div class="page-header">
-   <h1 align="center">Appointment Details</h1>
+   <h1 align="center">Job Details</h1>
  </div>
 
  <div clss="col-lg-6">
@@ -91,7 +82,7 @@ $data=$job->view_job($apid);
  <div class="container">
  <div class="col-md-3 col-sm-3 col-xs12"></div>
 
-   <div class="jumbotron col-md-6 col-sm-6 col-xs-12">
+   <div class="jumbotron col-md-6 col-sm-6 col-xs-12" id="job_list">
 
      <!-- appointment details -->
  <table class="table-condensed">

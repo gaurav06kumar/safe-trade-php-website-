@@ -56,6 +56,7 @@
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
+                    <li><a href="Create_Job.php">Create Job </a></li>
                     <li><a href="Customer_Profile.php">Profile </a></li>
                     <li><a href="Customer_Dash.php">Back</a></li>
                     <li><a href="Trader_LogOut.php">LogOut </a></li>
