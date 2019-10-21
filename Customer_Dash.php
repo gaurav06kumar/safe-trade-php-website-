@@ -1,6 +1,8 @@
 <?php
 session_start();
-include_once 'include/customer.php';
+require_once('include/customer.php');
+require_once('include/job.php');
+$job = new Job();
 
 $user = new User();
 $uid = $_SESSION['uid'];
@@ -86,7 +88,7 @@ $uid = $_SESSION['uid'];
 </div>
 
 </div>
-
+    <?php $job->view_all_job();?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
