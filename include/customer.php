@@ -1,23 +1,31 @@
 <?php
-	 require_once("db_config.php");
+	include_once 'db_config.php';
 	class User{
-		protected $db;
-		public function __construct(){
-			$this->db = new DB_con();
-			$this->db = $this->db->ret_obj();
-		}
+
+ private $uid=null;
+ private $fname ="";
+ private $username="";
+ private $password="";
+ private $email="";
+
+
+ public function __construct($uid,$name,$username,$password,$email){
+	 $this->uid = $uid;
+	 $this->fname = $name;
+	 $this->username = $username;
+	 $this->password = $password;
+	 $this->email = $email;
+ }
 
 		/*** for registration process ***/
 
-		public function reg_user($name,$username,$password,$email){
-			//echo "k";
-
-
-
-			//checking if the username or email is available in db
+		public  static function reg_user($db,$name,$username,$password,$email){
+			// create a new student record in students table and if successful
+			// create a student object and return it otherwise return false;
+			 $result = false;
 			$query = "SELECT * FROM customerinfo WHERE uname='$username' OR uemail='$email'";
 
-			$result = $this->db->query($query) or die($this->db->error);
+			$result = $db->query($query) or die($db->error);
 
 			$count_row = $result->num_rows;
 
@@ -26,45 +34,61 @@
 			if($count_row == 0){
 				$query = "INSERT INTO customerinfo SET uname='$username', upass='$password', fullname='$name', uemail='$email'";
 
-				$result = $this->db->query($query) or die($this->db->error);
+				$result = $db->query($query);
+				if($result)
+				{
+					$id = $db->insert_id;
+					$user = new User($id,$name,$username,$password,$email);
+		      $result = $user;
+				}
+				 return $result;
 
-				return true;
 			}
-			else{return false;}
+			else{
+				  $x='0';
+				return $x;
+			}
+
 
 
 			}
+
+
 
 
 	/*** for login process ***/
-		public function check_login($emailusername, $password){
+		public static  function check_login($db,$emailusername, $password){
         //$password = md5($password);
 
-		$query = "SELECT uid from customerinfo WHERE uemail='$emailusername' or uname='$emailusername' and upass='$password'";
+		$query = "SELECT * from customerinfo WHERE uemail='$emailusername' or uname='$emailusername' and upass='$password'";
 
-		$result = $this->db->query($query) or die($this->db->error);
+		$result = $db->query($query) or die($db->error);
 
 
 		$user_data = $result->fetch_array(MYSQLI_ASSOC);
 		$count_row = $result->num_rows;
 
 		if ($count_row == 1) {
-	            $_SESSION['login'] = true; // this login var will use for the session thing
-	            $_SESSION['uid'] = $user_data['uid'];
 
-	            return true;
+
+
+			$user = new User($user_data['uid'],$user_data['fullname'],$user_data['uname'],$user_data['upass'],$user_data['uemail']);
+			$result = $user;
+
+	     $_SESSION['uid'] = $user_data['uid'];
+
+	            return $result;
 	        }
 
-		else{return false;}
 
 
 	}
 
 
-	public function get_fullname($uid){
+	public static function get_fullname($db,$uid){
 		$query = "SELECT fullname FROM customerinfo WHERE uid = $uid";
 
-		$result = $this->db->query($query) or die($this->db->error);
+		$result = $db->query($query) or die($db->error);
 
 		$user_data = $result->fetch_array(MYSQLI_ASSOC);
 		echo $user_data['fullname'];
