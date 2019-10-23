@@ -80,15 +80,16 @@
 <?php
 session_start();
 include_once 'include/job.php';
-$job = new Job();
+require_once('include/db_config.php');
+ 
 
 if ( true) {
 	//	extract($_POST);
 
      $id=$_SESSION['uid'];
 
-	   $result = $job-> view_my_job($id);
-     
+	     $result = Job::view_my_job($db,$id);
+
 	}
 ?>
 
