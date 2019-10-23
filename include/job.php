@@ -2,33 +2,51 @@
  require_once("db_config.php");
 class Job {
 
- protected $db;
- public function __construct(){
-	 $this->db = new DB_con();
-	 $this->db = $this->db->ret_obj();
- }
+ private $jobname="";
+ private $loc="";
+ private $descrip="";
+ private $estcost="";
+  private $sdate="";
+   private $edate="";
+   private $cid=null;
+  private $jid=null;
 
 
 
- public function createjob($jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid)
+public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid,$jid){
+  $this->jobname = $jname;
+  $this->loc = $loc;
+  $this->descrip = $descrip;
+  $this->estcost = $estcost;
+  $this->sdate = $sdate;
+  $this->edate = $edate;
+  $this->cid = $uid;
+  $this->jid = $jid;
+}
+ public static function createjob($db,$jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid)
  {
 
-	 $query ="INSERT INTO job SET job_name='$jname', location='$loc', Discription='$descrip', Expected_Cost='$estcost' ,Start_Date='$sdate'  ,End_Date='$edate',uid='$uid'";
+     $query ="INSERT INTO job SET job_name='$jname', location='$loc', Discription='$descrip', Expected_Cost='$estcost' ,Start_Date='$sdate'  ,End_Date='$edate',uid='$uid'";
 
 
-	 $result = $this->db->query($query) or die($this->db->error);
-		if ($result)
-		{
-			 return true;
-		}
-		 else{return false;}
+     $result = $db->query($query);
+      if ($result)
+      {
+        $jid = $db->insert_id;
+        $job = new Job($jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid,$jid);
+        $result = $job;
+
+      }
+      return $result;
+
+
  }
 
- public function view_my_job($uid)
+ public static function view_my_job($db,$uid)
  {
 	 $query = "SELECT  `job_name`, `location`, `Discription`, `Expected_Cost`, `Start_Date`, `End_Date` FROM `job` WHERE uid='$uid'";
 	 //$query = "SELECT * FROM job";
-	 $result = $this->db->query($query) or die($this->db->error);
+	 $result = $db->query($query) or die($db->error);
 	//$result->execute();
 
 		 ?>
@@ -82,11 +100,11 @@ class Job {
 		 <?php
  }
 
- public function view_all_job()
+ public  static function view_all_job($db)
  {
 
 	 $query = "SELECT * FROM job";
-	 $result = $this->db->query($query) or die($this->db->error);
+	 $result = $db->query($query) or die($db->error);
 	//$result->execute();
 
 		 ?>
@@ -130,11 +148,11 @@ class Job {
 		 <?php
  }
 
- public function view_job($jid)
+ public static  function view_job($db,$jid)
  {
 
 		 $query = "SELECT  `job_name`, `location`, `Discription`, `Expected_Cost`, `Start_Date`, `End_Date` FROM `job` WHERE jid='$jid'";
-	 $result = $this->db->query($query) or die($this->db->error);
+	 $result = $db->query($query) or die($db->error);
 	//$result->execute();
 
 
