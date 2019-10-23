@@ -169,7 +169,7 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 						 $enddate= $res['End_Date'];
 			$d = array();
 			array_push($d,$jname,$jlocation,$desc,$ecost,$sdate,$enddate  );
-						return $d;
+			return $d;
 
 
 
