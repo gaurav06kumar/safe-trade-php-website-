@@ -1,6 +1,8 @@
 <?php
 include_once 'include/customer.php';
-$user = new User();
+require_once('include/db_config.php');
+//$user = new User();
+
 // Checking for user logged in or not
     /*if (!$user->get_session())
     {
@@ -12,25 +14,46 @@ if (isset($_POST['signup'])){
         $uname=$_POST['Uname'];
         $email=$_POST['email'];
         $upass= $_POST['pass'];
-        $register = $user->reg_user($fullname, $uname, $upass, $email);
-        if ($register) {
+      //  $user = User::create($mysqli, $_POST['name'], $_POST['studentId'], $_POST['email'], $_POST['dateOfBirth']);
+
+        $register = User::reg_user($db,$fullname, $uname, $upass, $email);
+        if (is_null($register)) {
             // Registration Success
-            ?>
-            <script type="text/javascript">
-              window.open('Customer_LogIN.php?ss=1','_self');
-            </script>
-            <?php
-        } else {
-            // Registration Failed
+
+
             ?>
             <script type="text/javascript">
               window.open('Customer_SignUP.php?ss=0','_self');
             </script>
             <?php
+
+        }
+
+    elseif ($register=='0') {
+
+      //echo "alredy prenst";
+
+      ?>
+      <script type="text/javascript">
+        window.open('Customer_SignUP.php?ss=2','_self');
+      </script>
+      <?php
+
+      // code...
+    }
+        else {
+          //echo "login";
+
+
+          ?>
+          <script type="text/javascript">
+            window.open('Customer_LogIN.php?ss=1','_self');
+          </script>
+          <?php
+
         }
     }
 ?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +68,7 @@ if (isset($_POST['signup'])){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <style>
-	
+
         body{
 
 		background: url(Images/YinYang.jpg) no-repeat;
@@ -190,7 +213,7 @@ if (isset($_POST['signup'])){
 						<input type="password" class="form-control" id="pass" name="pass" required>
 					</div>
 
-				 
+
 
 
 					<div class="form-group" >
