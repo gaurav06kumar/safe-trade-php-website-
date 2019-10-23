@@ -2,31 +2,37 @@
 <?php
 session_start();
 include_once 'include/tradesmen.php';
-$t_user = new tradesmen();
+include_once 'include/db_config.php';
+
 
 if (isset($_POST['submit'])) {
 	//	extract($_POST);
   $emailusername=$_POST['email'];
    $password=$_POST['pass'];
-	    $login = $t_user->check_login($emailusername, $password);
-	    if ($login) {
-	        // Registration Success
-	       //echo "pass";
-		 //echo  $_SESSION['TID'];
-		 ?>
-		 <script type="text/javascript">
-			 window.open('Trader_Dash.php','_self');
-		 </script>
-		 <?php
+
+	    $login = tradesmen::check_login($db,$emailusername, $password);
+	    if (is_null($login)) {
+
+
+        ?>
+       <script type="text/javascript">
+         window.open('Trader_LogIN.php?ss=0','_self');
+       </script>
+       <?php
+
+
 
 	    } else {
-	        // Registration Failed
-	       // echo 'Wrong username or password';
+
+
+
          ?>
-     		<script type="text/javascript">
-     			window.open('Trader_LogIN.php?ss=0','_self');
-     		</script>
-     		<?php
+    		 <script type="text/javascript">
+    			 window.open('Trader_Dash.php','_self');
+    		 </script>
+    		 <?php
+
+
 	    }
 	}
 ?>
