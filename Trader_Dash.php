@@ -1,11 +1,11 @@
 <?php
 session_start();
 include_once 'include/tradesmen.php';
-$t_user = new tradesmen();
+require_once('include/db_config.php');
+
 $tid=$_SESSION['TID']
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +67,7 @@ $tid=$_SESSION['TID']
 
 <div class="Container" align="center">
 
-<h1>Welcome <?php $t_user->get_fullname($tid); ?></h1>
+  <h1>Welcome <?php tradesmen::get_fullname($db,$tid); ?></h1>
 
 </div>
 
