@@ -1,9 +1,10 @@
 <?php
 session_start();
 require_once('include/job.php');
+include_once 'include/job.php';
 $apid = $_GET['jid'];
-$job = new Job();
-$data=$job->view_job($apid);
+
+$data=Job::view_job($db,$apid);
 
 
  ?>
@@ -110,7 +111,7 @@ $data=$job->view_job($apid);
    <th>End Date: </th>
    <td><?php echo $data[5]; ?></td>
  </tr>
- 
+
  </table>
 
  </div>
