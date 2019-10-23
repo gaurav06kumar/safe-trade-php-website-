@@ -2,9 +2,10 @@
 session_start();
 require_once('include/customer.php');
 require_once('include/job.php');
-$job = new Job();
+require_once('include/db_config.php');
 
-$user = new User();
+
+
 $uid = $_SESSION['uid'];
 
 ?>
@@ -74,13 +75,13 @@ $uid = $_SESSION['uid'];
 
 <div class="container" align="center">
 
-<h1>Welcome <?php $user->get_fullname($uid); ?></h1>
+  <h1>Welcome <?php User::get_fullname($db,$uid); ?></h1>
 
 
 </div>
 
 <div class="container" id="job_list">
-        <?php $job->view_all_job();?>
+        <?php JOb::view_all_job($db);?>
     </div>
 
 
