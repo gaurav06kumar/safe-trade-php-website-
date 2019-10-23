@@ -2,9 +2,7 @@
 session_start();
 require_once('include/customer.php');
 require_once('include/job.php');
-$job = new Job();
-
-$user = new User();
+ 
 $uid = $_SESSION['uid'];
 
 ?>-->
