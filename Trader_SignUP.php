@@ -1,6 +1,7 @@
 <?php
 include_once 'include/tradesmen.php';
-$t_user = new tradesmen();
+require_once('include/db_config.php');
+
 // Checking for user logged in or not
     /*if (!$user->get_session())
     {
@@ -12,22 +13,40 @@ if (isset($_POST['signup'])){
         $uname=$_POST['Uname'];
         $email=$_POST['email'];
         $upass= $_POST['pass'];
-        $register = $t_user->reg_user($fullname, $uname, $upass, $email);
-        if ($register) {
-            // Registration Success
-            ?>
-            <script type="text/javascript">
-              window.open('Trader_LogIN.php?ss=1','_self');
-            </script>
-            <?php
-        } else {
-            // Registration Failed
+        $register = tradesmen::reg_user($db,$fullname, $uname, $upass, $email);
+        if (is_null($register)) {
+
+          //"Registration Failed";
+
             ?>
            <script type="text/javascript">
              window.open('Trader_SignUP.php?ss=0','_self');
            </script>
            <?php
-            echo "<div style='text-align:center'>Registration failed. Email or Username already exits please try again.</div>";
+
+        }
+
+        elseif ($register=='0') {
+
+          //  "alredy prenst"
+
+          ?>
+          <script type="text/javascript">
+            window.open('Trader_SignUP.php?ss=2','_self');
+          </script>
+          <?php
+
+
+        }
+        else {
+
+          // Registration Success
+          ?>
+          <script type="text/javascript">
+            window.open('Trader_LogIN.php?ss=1','_self');
+          </script>
+          <?php
+
         }
     }
 ?>
@@ -159,11 +178,8 @@ if (isset($_POST['signup'])){
 								{
 									echo "<legend> Unable To Register User , Please Try Again.</legend>";
 								}
+
 								if($_GET['ss']==2)
-								{
-									echo "<legend> Password is not matched  , Please Try Again.</legend>";
-								}
-								if($_GET['ss']==3)
 								{
 									echo "<legend> Email alredy present  , Please Try Again.</legend>";
 								}
