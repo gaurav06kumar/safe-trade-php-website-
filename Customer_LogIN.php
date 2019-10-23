@@ -2,28 +2,33 @@
 <?php
 session_start();
 include_once 'include/customer.php';
-$user = new User();
+include_once 'include/db_config.php';
+
+
+//$user = new User();
 
 if (isset($_POST['submit'])) {
 	//	extract($_POST);
   $emailusername=$_POST['email'];
    $password=$_POST['pass'];
-	    $login = $user->check_login($emailusername, $password);
-	    if ($login) {
-	       
-		 ?>
-		 <script type="text/javascript">
-			window.open('Customer_Dash.php','_self');
-		 </script>
-		 <?php
+	    $login = User::check_login($db,$emailusername, $password);
+	    if (is_null($login)) {
+
+         ?>
+        <script type="text/javascript">
+          window.open('Customer_LogIN.php?ss=0','_self');
+        </script>
+        <?php
 
 	    } else {
-	        // Registration Failed
-          ?>
+
+
+         ?>
           <script type="text/javascript">
-            window.open('Customer_LogIN.php?ss=0','_self');
+           window.open('Customer_Dash.php','_self');
           </script>
           <?php
+
 	    }
 	}
 ?>
