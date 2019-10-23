@@ -1,20 +1,16 @@
 <?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', 'safe_trade');
 
-class DB_con {
-	public $connection;
-	function __construct(){
-		$this->connection = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD,DB_DATABASE);
+$db = mysqli_connect('localhost','root','','safe_trade');
 
-		if ($this->connection->connect_error) die('Database error -> ' . $this->connection->connect_error);
-
-	}
-
-	function ret_obj(){
-		return $this->connection;
-	}
+if(!$db)
+{
+  echo "Data Base Connection Error !!!!";
+  exit();
+}
+else {
 
 }
+$db->autocommit(true);
+
+error_reporting(E_ALL);
+?>
