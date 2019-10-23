@@ -1,7 +1,8 @@
 <?php
 session_start();
 include_once 'include/job.php';
-$job = new Job();
+require_once('include/db_config.php');
+
 
 if (isset($_POST['p_job'])) {
 	//	extract($_POST);
@@ -12,28 +13,31 @@ if (isset($_POST['p_job'])) {
     $sdate=$_POST['s_date'];
     $edate=$_POST['e_date'];
     $uid=$_SESSION['uid'];
-	   $result = $job->createjob($jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid);
-	    if ($result) {
-
-        // job creation success
-        ?>
-   		 <script type="text/javascript">
-   			window.open('Create_Job.php?ss=1','_self');
-   		 </script>
-   		 <?php
-
-
-	    } else {
+	   $result = Job::createjob($db,$jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid);
+	    if (is_null($result)) {
         // job creation Failed
-        ?>
+
+       ?>
         <script type="text/javascript">
           window.open('Create_Job.php?ss=0','_self');
         </script>
         <?php
+
+
+
+	    } else {
+
+
+        // job creation success
+    ?>
+       <script type="text/javascript">
+        window.open('Create_Job.php?ss=1','_self');
+       </script>
+       <?php
+
 	    }
 	}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
