@@ -1,11 +1,13 @@
-<!--<?php
+<?php
 session_start();
-require_once('include/customer.php');
-require_once('include/job.php');
- 
-$uid = $_SESSION['uid'];
+require_once('include/tradesmen.php');
+require_once('include/db_config.php');
 
-?>-->
+
+
+$tid = $_SESSION['TID'];
+$data=tradesmen::view_Tprofile($db,$tid);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +66,27 @@ $uid = $_SESSION['uid'];
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<table class="table-condensed">
+<tr>
+  <th>Full Name: </th>
+  <td><?php echo $data[0]; ?></td>
+</tr>
+<tr>
+  <th>Username: </th>
+  <td><?php echo $data[1]; ?></td>
+</tr>
+<tr>
+  <th>Email: </th>
+  <td><?php echo $data[2]; ?></td>
+</tr>
+<tr>
+  <th>Password: </th>
+  <td><?php echo $data[3]; ?></td>
+</tr>
 
+
+
+</table>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
