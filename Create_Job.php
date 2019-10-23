@@ -124,11 +124,11 @@ if (isset($_POST['p_job'])) {
               {
                 if($_GET['ss']==1)
                 {
-                  echo "<legend> Job created Successfully.</legend>";
+                  echo "<legend style='color:white;'> Job created Successfully.</legend>";
                 }
                 if($_GET['ss']==0)
                 {
-                  echo "<legend style='color:orange;'> Failed.</legend>";
+                  echo "<legend style='color:red;'> Failed.</legend>";
                 }
               }
           ?>
