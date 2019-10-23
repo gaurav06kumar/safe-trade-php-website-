@@ -95,6 +95,33 @@
 
 	}
 
+	public static  function view_profile($db,$uid)
+  {
+    $query = "SELECT `uname`, `upass`, `fullname`, `uemail`FROM customerinfo WHERE uid = $uid";
+ 	 $result = $db->query($query) or die($db->error);
+ 	//$result->execute();
+
+	$res = $result->fetch_array(MYSQLI_ASSOC);
+
+
+
+
+        $name=$res['fullname'];
+				$username=$res['uname'];
+				$password=$res['upass'];
+				$email=$res['uemail'];
+				$d = array();
+ 			array_push($d,$name,$username,$email,$password);
+ 			return $d;
+
+
+
+
+  }
+
+
+
+
 
 
 }
