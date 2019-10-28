@@ -113,9 +113,28 @@
 
   }
 
+ 
 
+		// ------- getter methods ----------
+		public function getName(){
+			return $this->tname;
+		}
 
+		public function getId(){
+			return $this->tid;
+		}
 
+		public function getEmail(){
+			return $this->temail;
+		}
+
+		public function getUname(){
+			return $this->tusername;
+		}
+
+		public function getPass(){
+			return $this->tpassword;
+		}
 
 
 
