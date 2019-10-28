@@ -179,6 +179,36 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 
 
 
+ // ------- getter methods ----------
+ public function getJObName(){
+   return $this->jobname;
+ }
+
+ public function getLoc(){
+   return $this->loc;
+ }
+
+ public function getDescrip(){
+   return $this->descrip;
+ }
+
+ public function getEcost(){
+   return $this->estcost;
+ }
+
+ public function getSdate(){
+   return $this->$sdate;
+ }
+ public function getEdate(){
+   return $this->edate;
+ }
+ public function getCid(){
+   return $this->cid;
+ }
+ public function getJid(){
+   return $this->jid;
+ }
+
 
 
 }
