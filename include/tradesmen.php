@@ -79,41 +79,27 @@
 	}
 
 
-	public static function get_fullname($db,$tid){
-		$query = "SELECT T_fname FROM tradesmeninfo WHERE TID = $tid";
 
-		$result = $db->query($query) or die($db->error);
+	public static function find($db, $id){
+		// search tradesmen table and locate record with id
+		// get that record and create tradesmen object
+		// return tradesmen object OR false if we cannot find it
+		$result = false;
+			$query = "SELECT * FROM tradesmeninfo WHERE TID = $id";
+			$result = $db->query($query) or die($db->error);
+		if ($result){
+			if ($result->num_rows == 1){
+				$user_data = $result->fetch_assoc();
+				$user = new tradesmen($user_data['TID'],$user_data['T_fname'],$user_data['T_username'],$user_data['T_pass'],$user_data['T_email']);
 
-		$user_data = $result->fetch_array(MYSQLI_ASSOC);
-		echo $user_data['T_fname'];
-
+				$result = $user;
+			}
+		}
+		return $result;
 	}
-	public static  function view_Tprofile($db,$tid)
-  {
-		$query = "SELECT `T_username`, `T_fname`, `T_pass`, `T_email` FROM `tradesmeninfo`WHERE TID=$tid";
-    //$query = "SELECT `uname`, `upass`, `fullname`, `uemail`FROM customerinfo WHERE uid = $uid";
- 	 $result = $db->query($query) or die($db->error);
- 	//$result->execute();
-
-	$res = $result->fetch_array(MYSQLI_ASSOC);
 
 
 
-
-        $name=$res['T_fname'];
-				$username=$res['T_username'];
-				$password=$res['T_pass'];
-				$email=$res['T_email'];
-				$d = array();
- 			array_push($d,$name,$username,$email,$password);
- 			return $d;
-
-
-
-
-  }
-
- 
 
 		// ------- getter methods ----------
 		public function getName(){
