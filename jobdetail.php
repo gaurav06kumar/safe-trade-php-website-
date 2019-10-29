@@ -97,6 +97,7 @@ $data=Job::find($db, $apid);
  </tr>
  <tr>
    <th>Discription: </th>
+   <td><?php echo $data->getDescrip(); ?></td>
  </tr>
  <tr>
    <th>Expected Cost: </th>
