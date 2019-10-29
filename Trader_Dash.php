@@ -3,7 +3,9 @@ session_start();
 include_once 'include/tradesmen.php';
 require_once('include/db_config.php');
 
-$tid=$_SESSION['TID']
+$tid=$_SESSION['TID'];
+$result = tradesmen::find($db,$tid);
+
 
 ?>
 <!DOCTYPE html>
@@ -67,7 +69,7 @@ $tid=$_SESSION['TID']
 
 <div class="Container" align="center">
 
-  <h1>Welcome <?php tradesmen::get_fullname($db,$tid); ?></h1>
+  <h1>Welcome <?php  echo $result->getName();  ?></h1>
 
 </div>
 
