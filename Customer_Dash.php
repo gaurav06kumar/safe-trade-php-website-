@@ -7,6 +7,10 @@ require_once('include/db_config.php');
 
 
 $uid = $_SESSION['uid'];
+ $result=User::find($db,$uid);
+ $name=$result->getName();
+
+
 
 ?>
 <!DOCTYPE html>
@@ -75,13 +79,14 @@ $uid = $_SESSION['uid'];
 
 <div class="container" align="center">
 
-  <h1>Welcome <?php User::get_fullname($db,$uid); ?></h1>
+  <h1>Welcome <?php  echo $name; ?></h1>
 
 
 </div>
 
 <div class="container" id="job_list">
         <?php JOb::view_all_job($db);?>
+
     </div>
 
 
