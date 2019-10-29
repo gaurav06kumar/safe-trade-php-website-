@@ -1,12 +1,14 @@
 <?php
 session_start();
 require_once('include/customer.php');
- 
+
 
 
 
 $uid = $_SESSION['uid'];
- $data=User::view_profile($db,$uid);
+
+ $result=User::find($db,$uid);
+ //$data=User::view_profile($db,$uid);
 
 
 ?>
@@ -82,19 +84,19 @@ $uid = $_SESSION['uid'];
 <table class="table-condensed">
 <tr>
   <th>Full Name: </th>
-  <td><?php echo $data[0]; ?></td>
+  <td><?php echo $result->getName();  ?></td>
 </tr>
 <tr>
   <th>Username: </th>
-  <td><?php echo $data[1]; ?></td>
+  <td><?php echo $result->getUname(); ?></td>
 </tr>
 <tr>
   <th>Email: </th>
-  <td><?php echo $data[2]; ?></td>
+  <td><?php echo $result->getEmail(); ?></td>
 </tr>
 <tr>
   <th>Password: </th>
-  <td><?php echo $data[3]; ?></td>
+  <td><?php echo $result->getPass(); ?></td>
 </tr>
 
 
