@@ -3,8 +3,8 @@ session_start();
 require_once('include/job.php');
 include_once 'include/job.php';
 $apid = $_GET['jid'];
-
-$data=Job::view_job($db,$apid);
+$data=Job::find($db, $apid);
+//$data=Job::view_job($db,$apid);
 
 
  ?>
@@ -89,27 +89,26 @@ $data=Job::view_job($db,$apid);
  <table class="table-condensed">
  <tr>
    <th>Job Name: </th>
-   <td><?php echo $data[0]; ?></td>
+   <td><?php echo $data->getJObName(); ?></td>
  </tr>
  <tr>
    <th>Location: </th>
-   <td><?php echo $data[1]; ?></td>
+   <td><?php echo $data->getLoc(); ?></td>
  </tr>
  <tr>
    <th>Discription: </th>
-   <td><?php echo $data[2]; ?></td>
  </tr>
  <tr>
    <th>Expected Cost: </th>
-   <td><?php echo $data[3]; ?></td>
+   <td><?php echo $data->getEcost(); ?></td>
  </tr>
  <tr>
    <th>Start Date: </th>
-   <td><?php echo $data[4]; ?></td>
+   <td><?php echo $data->getSdate(); ?></td>
  </tr>
  <tr>
    <th>End Date: </th>
-   <td><?php echo $data[5]; ?></td>
+   <td><?php echo $data->getEdate(); ?></td>
  </tr>
 
  </table>
