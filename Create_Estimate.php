@@ -78,7 +78,7 @@
 
             <div class="row">
 
-            
+
                 <div class="col-sm-4">
                     <div class="form-group">
                         <span for="l_cost" class="form-label">Labour Cost</span>
@@ -113,7 +113,7 @@
 
                 <div class="col-sm-6">
                     <div for="exp_date" class="form-group">
-                        <span class="form-label">Expected Date</span>
+                        <span class="form-label">Expiry Date</span>
                         <input class="form-control" type="date" id="exp_date" name="exp_date" required>
                     </div>
                 </div>
@@ -140,6 +140,6 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    
+
 </body>
 </html>
