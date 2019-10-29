@@ -85,40 +85,30 @@
 	}
 
 
-	public static function get_fullname($db,$uid){
-		$query = "SELECT fullname FROM customerinfo WHERE uid = $uid";
+	public static function find($db, $id){
+		// search students table and locate record with id
+		// get that record and create student object
+		// return student object OR false if we cannot find it
+		$result = false;
+		$query = "SELECT * FROM customerinfo WHERE uid = $id";
+			$result = $db->query($query) or die($db->error);
+		if ($result){
+			if ($result->num_rows == 1){
+				$user_data = $result->fetch_assoc();
+					$user = new User($user_data['uid'],$user_data['fullname'],$user_data['uname'],$user_data['upass'],$user_data['uemail']);
 
-		$result = $db->query($query) or die($db->error);
-
-		$user_data = $result->fetch_array(MYSQLI_ASSOC);
-		echo $user_data['fullname'];
-
+				$result = $user;
+			}
+		}
+		return $result;
 	}
 
-	public static  function view_profile($db,$uid)
-  {
-    $query = "SELECT `uname`, `upass`, `fullname`, `uemail`FROM customerinfo WHERE uid = $uid";
- 	 $result = $db->query($query) or die($db->error);
- 	//$result->execute();
-
-	$res = $result->fetch_array(MYSQLI_ASSOC);
 
 
 
 
-        $name=$res['fullname'];
-				$username=$res['uname'];
-				$password=$res['upass'];
-				$email=$res['uemail'];
-				$d = array();
- 			array_push($d,$name,$username,$email,$password);
- 			return $d;
-
-
-
-
-  }
  
+
 
 	// ------- getter methods ----------
 	public function getName(){
