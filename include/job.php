@@ -148,34 +148,26 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 		 <?php
  }
 
- public static  function view_job($db,$jid)
- {
 
-		 $query = "SELECT  `job_name`, `location`, `Discription`, `Expected_Cost`, `Start_Date`, `End_Date` FROM `job` WHERE jid='$jid'";
-	 $result = $db->query($query) or die($db->error);
-	//$result->execute();
+ public static function find($db, $id){
+   // search students table and locate record with id
+   // get that record and create student object
+   // return student object OR false if we cannot find it
+   $result = false;
+   $query = "SELECT * FROM job WHERE jid = $id";
+     $result = $db->query($query) or die($db->error);
+   if ($result){
+     if ($result->num_rows == 1){
+       $user_data = $result->fetch_assoc();
 
+         $user = new Job($user_data['job_name'],$user_data['location'],$user_data['Discription'],$user_data['Expected_Cost'],$user_data['Start_Date'],$user_data['End_Date'],$user_data['uid'],$user_data['jid']);
 
-		 while($res = $result->fetch_assoc())
-		 {
-
-
-
-						$jname= $res['job_name'];
-						$jlocation= $res['location'];
-						$desc=$res['Discription'];
-						$ecost=$res['Expected_Cost'];
-						 $sdate=$res['Start_Date'];
-						 $enddate= $res['End_Date'];
-			$d = array();
-			array_push($d,$jname,$jlocation,$desc,$ecost,$sdate,$enddate  );
-			return $d;
-
-
-
-		 }
-
+       $result = $user;
+     }
+   }
+   return $result;
  }
+
 
 
 
@@ -197,7 +189,7 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
  }
 
  public function getSdate(){
-   return $this->$sdate;
+   return $this->sdate;
  }
  public function getEdate(){
    return $this->edate;
