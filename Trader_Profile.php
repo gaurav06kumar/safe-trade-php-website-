@@ -6,7 +6,7 @@ require_once('include/db_config.php');
 
 
 $tid = $_SESSION['TID'];
-$data=tradesmen::view_Tprofile($db,$tid);
+$result = tradesmen::find($db,$tid);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,19 +69,19 @@ $data=tradesmen::view_Tprofile($db,$tid);
 <table class="table-condensed">
 <tr>
   <th>Full Name: </th>
-  <td><?php echo $data[0]; ?></td>
+  <td><?php echo $result->getName(); ?></td>
 </tr>
 <tr>
   <th>Username: </th>
-  <td><?php echo $data[1]; ?></td>
+  <td><?php  echo $result->getUname(); ?></td>
 </tr>
 <tr>
   <th>Email: </th>
-  <td><?php echo $data[2]; ?></td>
+  <td><?php echo $result->getEmail(); ?></td>
 </tr>
 <tr>
   <th>Password: </th>
-  <td><?php echo $data[3]; ?></td>
+  <td><?php echo $result->getPass(); ?></td>
 </tr>
 
 
