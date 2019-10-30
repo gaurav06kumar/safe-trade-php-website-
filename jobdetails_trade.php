@@ -56,9 +56,8 @@ $data=Job::find($db, $apid);
          <ul class="nav navbar-nav">
 
           <li><a href="My_Estimate.php">My Estimate </a></li>
-          <li><a href="My_Jobs.php">My Jobs </a></li>
           <li>  <a href="Trader_Dash.php">Back</a></li>
-          <li><a href="Customer_LogOut.php">Logout</a></li>
+          <li><a href="Trader_LogOut.php">Logout</a></li>
 
          </ul>
 

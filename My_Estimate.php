@@ -53,6 +53,7 @@
                     
                     <li><a href="Trader_Profile.php">Profile </a></li>
                     <li><a href="Trader_Dash.php">Home </a></li>
+                    <li>  <a href="Trader_Dash.php">Back</a></li>
                     <li><a href="Trader_LogOut.php">LogOut </a></li>
 
 
