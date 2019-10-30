@@ -85,7 +85,7 @@ $uid = $_SESSION['uid'];
 </div>
 
 <div class="container" id="job_list">
-        <?php JOb::view_all_job($db);?>
+        <?php JOb::view_all_Cjob($db);?>
 
     </div>
 
