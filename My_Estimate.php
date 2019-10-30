@@ -1,30 +1,23 @@
-<?php
-session_start();
-require_once('include/tradesmen.php');
-require_once('include/db_config.php');
-
-
-
-$tid = $_SESSION['TID'];
-$result = tradesmen::find($db,$tid);
-?>
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Customer Dashboard</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 	<title>Appointments</title>
+
+ 	<!-- Bootstrap CDN -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+   <!-- css -->
+   <link rel="stylesheet" href="css/style.css">
+
+
+ </head>
 
 
 
-</head>
+
 <body>
-
-
-
 
 <!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
 <nav class="navbar navbar-inverse">
@@ -56,10 +49,12 @@ $result = tradesmen::find($db,$tid);
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
+
                     
-                    <li><a href="My_Estimate.php">My Estimate </a></li>
+                    <li><a href="Trader_Profile.php">Profile </a></li>
                     <li><a href="Trader_Dash.php">Home </a></li>
                     <li><a href="Trader_LogOut.php">LogOut </a></li>
+
 
                 </ul>
 
@@ -67,29 +62,9 @@ $result = tradesmen::find($db,$tid);
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<table class="table-condensed">
-<tr>
-  <th>Full Name: </th>
-  <td><?php echo $result->getName(); ?></td>
-</tr>
-<tr>
-  <th>Username: </th>
-  <td><?php  echo $result->getUname(); ?></td>
-</tr>
-<tr>
-  <th>Email: </th>
-  <td><?php echo $result->getEmail(); ?></td>
-</tr>
-<tr>
-  <th>Password: </th>
-  <td><?php echo $result->getPass(); ?></td>
-</tr>
 
 
 
-</table>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
 </body>
-</html>

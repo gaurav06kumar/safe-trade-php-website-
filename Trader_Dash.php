@@ -56,6 +56,7 @@ $result = tradesmen::find($db,$tid);
             <div class="navbar-form navbar-right">
                 <ul class="nav navbar-nav">
 
+                    <li><a href="My_Estimate.php">My Estimate </a></li>
                     <li><a href="Trader_Profile.php">Profile </a></li>
                     <li><a href="Trader_LogOut.php">LogOut </a></li>
 
