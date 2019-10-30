@@ -3,48 +3,53 @@
 session_start();
 include_once 'include/job.php';
 require_once('include/db_config.php');
-$jid=$_GET['jid'];
-$tid= $_SESSION['TID'];
+require_once('include\tradesmen.php');
 
- echo $tid;
+require_once('include\estimate.php');
+
+
+
+
+
 
 
 if (isset($_POST['p_est'])) {
 	//	extract($_POST);
-    $jname=$_POST['j_name'];
-    $loc=$_POST['loc'];
-    $descrip=$_POST['discr'];
-    $estcost=$_POST['exp_cos'];
-    $sdate=$_POST['s_date'];
-    $edate=$_POST['e_date'];
-    $uid=$_SESSION['uid'];
-	   $result = Job::createjob($db,$jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid);
-	    if (is_null($result)) {
-        // job creation Failed
+    $jid=$_GET['jid'];
+    $tid= $_SESSION['TID'];
+    $lcost=$_POST['l_cost'];
+    $tcost=$_POST['t_cost'];
+    $mcost=$_POST['m_cost'];
+    $totaltcost=$_POST['tcost'];
+    $edate=$_POST['exp_date'];
+    $isAccepted='0';
 
-       ?>
+	   $result = estimate ::create_estimate($db, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted);
+	    if (is_null($result)) {
+      
+        //  creation Failed
+
+      ?>
         <script type="text/javascript">
-          window.open('Create_Job.php?ss=0','_self');
+          window.open('Create_Estimate.php?ss=0','_self');
         </script>
         <?php
 
-
+ 
 
 	    } else {
+    
 
-
-        // job creation success
+        //  creation success
     ?>
        <script type="text/javascript">
-        window.open('Create_Job.php?ss=1','_self');
+        window.open('Create_Estimate.php?ss=1','_self');
        </script>
        <?php
 
 	    }
 	}
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -124,7 +129,20 @@ if (isset($_POST['p_est'])) {
         </div>
 
         <form action="#" method="post"  class="booking-form">
+        <?php
+							if(isset($_GET['ss']))
+							{
+								if($_GET['ss']==1)
+								{
+									echo "<legend style='color:white;'> Estimate Created Successfully.</legend>";
+								}
+								if($_GET['ss']==0)
+								{
+									echo "<legend style='color:orange;'> Failed to create estimate .</legend>";
+								}
 
+							}
+					?>
 
             <div class="row">
 
