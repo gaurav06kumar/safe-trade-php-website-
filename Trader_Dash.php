@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'include/tradesmen.php';
+require_once('include/job.php');
 require_once('include/db_config.php');
 
 $tid=$_SESSION['TID'];
@@ -72,6 +73,10 @@ $result = tradesmen::find($db,$tid);
   <h1>Welcome <?php  echo $result->getName();  ?></h1>
 
 </div>
+<div class="container" id="job_list">
+        <?php JOb::view_all_Tjob($db);?>
+
+    </div>
 
 
 
