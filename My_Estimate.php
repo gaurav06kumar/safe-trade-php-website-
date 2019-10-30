@@ -64,7 +64,21 @@
 </nav>
 
 
+<?php
+session_start();
+include_once 'include/estimate.php';
+require_once('include/db_config.php');
+ 
 
+if ( true) {
+	//	extract($_POST);
+
+     $id=$_SESSION['TID'];
+
+	     $result = estimate::view_my_estimate($db,$id);
+
+	}
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
