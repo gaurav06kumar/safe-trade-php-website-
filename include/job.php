@@ -70,6 +70,12 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 
 		 while($res = $result->fetch_assoc())
 		 {
+        
+
+       if($res==0)
+       {
+         return "Sorry No Records Found..";
+       }
 			 if($res!=0)
 			 {
 				 ?>
@@ -90,17 +96,64 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 
 		 <?php
 			 }
-			 if($res==0)
-			 {
-				 return "Sorry No Records Found..";
-			 }
+
 		 }?>
 		 </tbody>
 		 </table>
 		 <?php
  }
 
- public  static function view_all_job($db)
+
+
+
+  public  static function view_all_Cjob($db)
+  {
+
+ 	 $query = "SELECT * FROM job";
+ 	 $result = $db->query($query) or die($db->error);
+ 	//$result->execute();
+
+ 		 ?>
+ 		 <table class = "table table-hover">
+ 		 <thead>
+ 		 <tr>
+
+ 		 <th>Job Name</th>
+ 		 <th>Location</th>
+ 		 <th>Job Expire Date</th>
+
+
+ 		 </tr>
+ 		 </thead>
+ 		 <tbody>
+ 		 <?php
+ //  $row = $qresult->fetch_assoc(); fetch(PDO::FETCH_ASSOC)
+ 		 while($res = $result->fetch_assoc())
+ 		 {
+
+ 				 ?>
+
+ 				 <div class="container-fluid">
+
+ 						 <tr>
+
+ 						 <td><?= $res['job_name']; ?> </td>
+ 						 <td><?= $res['location']; ?> </td>
+
+ 						 <td><?= $res['End_Date']; ?> </td>
+ 						 <td><a href="jobdetail.php?jid=<?php echo $res['jid']; ?>" class="btn btn-info">Details</a></td>
+
+
+ 						 </tr>
+ 				 </div>
+
+ 		 <?php
+ 		 }?>
+ 		 </tbody>
+ 		 </table>
+ 		 <?php
+  }
+ public  static function view_all_Tjob($db)
  {
 
 	 $query = "SELECT * FROM job";
@@ -135,7 +188,7 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 						 <td><?= $res['location']; ?> </td>
 
 						 <td><?= $res['End_Date']; ?> </td>
-						 <td><a href="jobdetail.php?jid=<?php echo $res['jid']; ?>" class="btn btn-info">Details</a></td>
+						 <td><a href="jobdetails_trade.php?jid=<?php echo $res['jid']; ?>" class="btn btn-info">Details</a></td>
 
 
 						 </tr>
