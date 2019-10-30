@@ -1,3 +1,52 @@
+
+<?php
+session_start();
+include_once 'include/job.php';
+require_once('include/db_config.php');
+$jid=$_GET['jid'];
+$tid= $_SESSION['TID'];
+
+ echo $tid;
+
+
+if (isset($_POST['p_est'])) {
+	//	extract($_POST);
+    $jname=$_POST['j_name'];
+    $loc=$_POST['loc'];
+    $descrip=$_POST['discr'];
+    $estcost=$_POST['exp_cos'];
+    $sdate=$_POST['s_date'];
+    $edate=$_POST['e_date'];
+    $uid=$_SESSION['uid'];
+	   $result = Job::createjob($db,$jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid);
+	    if (is_null($result)) {
+        // job creation Failed
+
+       ?>
+        <script type="text/javascript">
+          window.open('Create_Job.php?ss=0','_self');
+        </script>
+        <?php
+
+
+
+	    } else {
+
+
+        // job creation success
+    ?>
+       <script type="text/javascript">
+        window.open('Create_Job.php?ss=1','_self');
+       </script>
+       <?php
+
+	    }
+	}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
