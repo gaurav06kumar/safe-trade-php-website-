@@ -101,6 +101,7 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 						 <td><?= $res['Total_Cost']; ?> </td>
 				 
 						 <td><?= $res['Expiry_Date']; ?> </td>
+						 <td><a href="jobdetail.php?eid=<?php echo $res['eid']; ?>" class="btn btn-info">Delete</a></td>
 
 						 </tr>
 				 </div>
