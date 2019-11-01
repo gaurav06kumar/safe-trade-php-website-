@@ -44,7 +44,7 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 
  public static function view_my_job($db,$uid)
  {
-	 $query = "SELECT  `job_name`, `location`, `Discription`, `Expected_Cost`, `Start_Date`, `End_Date` FROM `job` WHERE uid='$uid'";
+	 $query = "SELECT  `jid` ,`job_name`, `location`, `Discription`, `Expected_Cost`, `Start_Date`, `End_Date` FROM `job` WHERE uid='$uid'";
 	 //$query = "SELECT * FROM job";
 	 $result = $db->query($query) or die($db->error);
 	//$result->execute();
@@ -90,6 +90,10 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 						 <td><?= $res['Expected_Cost']; ?> </td>
 						 <td><?= $res['Start_Date']; ?> </td>
 						 <td><?= $res['End_Date']; ?> </td>
+						 <td><a href="c_view_estimate.php?jid=<?php echo $res['jid']; ?>" class="btn btn-info">View Estimate</a></td>
+
+						 <td><a href="del_job.php?jid=<?php echo $res['jid']; ?>" class="btn btn-info">Delete</a></td>
+
 
 						 </tr>
 				 </div>
@@ -220,6 +224,38 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
    }
    return $result;
  }
+
+
+
+ public static function delete($db,$jid){
+	//delete estimate record in estimatedetails table and if successful 
+	// return true otherwise return false;
+  
+  
+  
+	$query ="SELECT * FROM `job` WHERE jid ='$jid' ";
+  
+	$result = $db->query($query) or die($db->error);
+  
+	if ($result){
+	  if ($result->num_rows == 1){
+		$row = $result->fetch_assoc();
+		//$_SESSION['CID']=$row['tid'];
+	  }
+	}
+	$result = false;  //   $query ="DELETE FROM `estimate` WHERE eid = '$id'" ;
+	$query ="DELETE FROM `job` WHERE jid = '$jid'" ;
+	$result = $db->query($query) or die($db->error);
+   
+  
+	if ($result){
+	 
+	  $result = true;
+	}
+	return $result;
+  }
+  
+
 
 
 
