@@ -76,7 +76,8 @@ if ( true) {
 
      $id=$_SESSION['TID'];
 
-	     $result = estimate::view_my_estimate($db,$id);
+         $result = estimate::view_my_estimate($db,$id);
+         
 
 	}
 ?>

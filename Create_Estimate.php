@@ -14,7 +14,8 @@ require_once('include\estimate.php');
 
 
 if (isset($_POST['p_est'])) {
-	//	extract($_POST);
+    //	extract($_POST);
+    
     $jid=$_GET['jid'];
     $tid= $_SESSION['TID'];
     $lcost=$_POST['l_cost'];
@@ -24,7 +25,10 @@ if (isset($_POST['p_est'])) {
     $edate=$_POST['exp_date'];
     $isAccepted='0';
 
-	   $result = estimate ::create_estimate($db, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted);
+    $data=Job::find($db, $jid);
+    $job= $data->getJObName();
+
+	   $result = estimate ::create_estimate($db, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted ,$job);
 	    if (is_null($result)) {
       
         //  creation Failed

@@ -13,10 +13,11 @@ class estimate {
  private $Total_cost="";
  private $edate="";
  private $isAccepted="";
+ private $jobName="";
 
 
 
-public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted){
+public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted,$job){
 
   $this->eid = $eid;
   $this->jid = $jid;
@@ -29,16 +30,16 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
   $this->isAccepted = $isAccepted;
 }
- public static function create_estimate($db, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted)
+ public static function create_estimate($db, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted,$job)
  {
-   $query ="INSERT INTO estimate SET  jid='$jid', tid='$tid', Labour_Cost='$lcost', Material_Cost='$mcost', Transport_Cost='$tcost', Total_Cost='$totaltcost', Expiry_Date='$edate', IsAccepted='$isAccepted' ";
+   $query ="INSERT INTO estimate SET  jid='$jid', tid='$tid', Labour_Cost='$lcost', Material_Cost='$mcost', Transport_Cost='$tcost', Total_Cost='$totaltcost', Expiry_Date='$edate', IsAccepted='$isAccepted',job_name='$job' ";
 
 
      $result = $db->query($query);
       if ($result)
       {
         $eid = $db->insert_id;
-        $estimate = new estimate($eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted);
+        $estimate = new estimate($eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted,$job);
         $result = $estimate;
 
       }
@@ -49,7 +50,7 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
  public static function view_my_estimate($db,$tid)
  {  
-	$query ="SELECT `eid`, `jid`, `tid`, `Labour_Cost`, `Material_Cost`, `Transport_Cost`, `Total_Cost`, `Expiry_Date`, `IsAccepted` FROM `estimate` WHERE tid ='$tid' ";
+	$query ="SELECT `eid`, `jid`, `tid`,job_name, `Labour_Cost`, `Material_Cost`, `Transport_Cost`, `Total_Cost`, `Expiry_Date`, `IsAccepted` FROM `estimate` WHERE tid ='$tid' ";
 	 $result = $db->query($query) or die($db->error);
  
 
@@ -60,7 +61,7 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
 		 
 		 <th>JID</th>
-		 
+		 <th>Job Name</th>
 		 <th>Labour Cost</th>
 		 <th>Material Cost</th>
 		 <th>Transport Cost</th>
@@ -84,29 +85,62 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
        }
 			 if($res!=0)
 			 {
-				 ?>
+				   if($res['IsAccepted']==1)
+				   {
+					?>
 				 
  
-				 <div class="container-fluid">
-
-						 <tr>
-
-					 
-						 <td><?= $res['jid']; ?> </td>
-					 
-						 <td><?= $res['Labour_Cost']; ?> </td>
-						 <td><?= $res['Material_Cost']; ?> </td>
-						 <td><?= $res['Transport_Cost']; ?> </td>
-					 
-						 <td><?= $res['Total_Cost']; ?> </td>
+					<div class="container-fluid"  >
+   
+							<tr bgcolor="#D2F67C">
+						
+						
+							<td><?= $res['jid']; ?> </td>
+						    <td><?= $res['job_name']; ?> </td>
+							<td><?= $res['Labour_Cost']; ?> </td>
+							<td><?= $res['Material_Cost']; ?> </td>
+							<td><?= $res['Transport_Cost']; ?> </td>
+						
+							<td><?= $res['Total_Cost']; ?> </td>
+					
+							<td><?= $res['Expiry_Date']; ?> </td>
+							<td><a href="delestimate.php?eid=<?php echo $res['eid']; ?>" class="btn btn-info">Delete</a></td>
+                        	 
+   
+							</tr>
+					</div>
+					
+   
+			<?php
+				   }
+				   else
+				   {
+					?>
 				 
-						 <td><?= $res['Expiry_Date']; ?> </td>
-						 <td><a href="delestimate.php?eid=<?php echo $res['eid']; ?>" class="btn btn-info">Delete</a></td>
-
-						 </tr>
-				 </div>
-
-		 <?php
+ 
+					<div class="container-fluid"  >
+   
+							<tr>
+   
+						
+							<td><?= $res['jid']; ?> </td>
+							<td><?= $res['job_name']; ?> </td>
+							<td><?= $res['Labour_Cost']; ?> </td>
+							<td><?= $res['Material_Cost']; ?> </td>
+							<td><?= $res['Transport_Cost']; ?> </td>
+						
+							<td><?= $res['Total_Cost']; ?> </td>
+					
+							<td><?= $res['Expiry_Date']; ?> </td>
+							<td><a href="delestimate.php?eid=<?php echo $res['eid']; ?>" class="btn btn-info">Delete</a></td>
+							 
+   
+							</tr>
+					</div>
+   
+			<?php
+				   }
+				
 			 }
 
 		 }?>
@@ -136,7 +170,7 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
 		 
 	 
-		 
+		 <th>Job Name </th>
 		 <th>Labour Cost</th>
 		 <th>Material Cost</th>
 		 <th>Transport Cost</th>
@@ -166,7 +200,7 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
 					 
 						  
-					 
+						 <td><?= $res['job_name']; ?> </td>
 						 <td><?= $res['Labour_Cost']; ?> </td>
 						 <td><?= $res['Material_Cost']; ?> </td>
 						 <td><?= $res['Transport_Cost']; ?> </td>
@@ -207,7 +241,7 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 		$user_data = $result->fetch_assoc();
 
 	  
-		  $user = new estimate($user_data['eid'],$user_data['jid'],$user_data['tid'],$user_data['Labour_Cost'],$user_data['Transport_Cost'],$user_data['Material_Cost'],$user_data['Total_Cost'],$user_data['Expiry_Date'],$user_data['IsAccepted']);
+		  $user = new estimate($user_data['eid'],$user_data['jid'],$user_data['tid'],$user_data['Labour_Cost'],$user_data['Transport_Cost'],$user_data['Material_Cost'],$user_data['Total_Cost'],$user_data['Expiry_Date'],$user_data['IsAccepted'],$user_data['job_name']);
  
 		$result = $user;
 	  }
@@ -318,6 +352,9 @@ public static function accept($db,$eid){
   }
   public function get_isAccepted(){
 	return $this->isAccepted;
+  }
+  public function get_jobName(){
+	return $this->jobName;
   }
  
  

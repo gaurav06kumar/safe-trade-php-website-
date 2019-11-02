@@ -42,7 +42,7 @@ $uid = $_SESSION['uid'];
 <!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
 <nav class="navbar navbar-expand-md bg-light navbar-light">
         <a class="pull-left"><img src="Images/Logo.png" width="60px" height="60px"></a>
-            <a class="navbar-brand js-scroll-trigger" href="Trader_Dash.php">&nbsp Safe Trade</a>
+            <a class="navbar-brand js-scroll-trigger" href="Customer_Dash.php">&nbsp Safe Trade</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
