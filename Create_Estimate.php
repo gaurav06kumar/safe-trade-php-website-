@@ -165,7 +165,7 @@ if (isset($_POST['p_est'])) {
 							{
 								if($_GET['ss']==1)
 								{
-									echo "<legend style='color:white;'> Estimate Created Successfully.</legend>";
+									echo "<legend style='color:green;'> Estimate Created Successfully.</legend>";
 								}
 								if($_GET['ss']==0)
 								{
