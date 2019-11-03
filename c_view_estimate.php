@@ -15,13 +15,11 @@ $data=Job::find($db, $apid);
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
  	<title>Appointments</title>
-
- 	<!-- Bootstrap CDN -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-   <!-- css -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style.css">
 
 
  </head>
@@ -31,80 +29,81 @@ $data=Job::find($db, $apid);
 
 <body>
 
-<!-- .navbar-fixed-top, or .navbar-fixed-bottom can be added to keep the nav bar fixed on the screen -->
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
 
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
+<nav class="navbar navbar-expand-md bg-light navbar-light">
+        <a class="pull-left"><img src="Images/Logo.png" width="60px" height="60px"></a>
+            <a class="navbar-brand js-scroll-trigger" href="Customer_Dash.php">&nbsp Safe Trade</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <div class="navbar-nav ml-auto">
 
-            <!-- Button that toggles the navbar on and off on small screens -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="Customer_Profile.php">Profile</a>
+            </li>
 
-                <!-- Hides information from screen readers -->
-                <span class="sr-only"></span>
+            <li class="nav-item">
+                <a class="nav-link" href="Customer_Dash.php">Home </a>
+            </li>
 
-                <!-- Draws 3 bars in navbar button when in small mode -->
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+            <li class="nav-item">
+                <a class="nav-link" href="My_jobs.php">Back</a>
+            </li>
 
-            </button>
-
-            <!-- You'll have to add padding in your image on the top and right of a few pixels (CSS Styling will break the navbar) -->
-            <a class="pull-left"><img src="Images/Logo.png" width="60px" height="60px"></a>
-            <a class="navbar-brand" href="#">&nbsp Safe Trade</a>
-
+            <li class="nav-item">
+                <a class="nav-link" href="Customer_LogOut.php">LogOut </a>
+            </li>    
+            </ul>
         </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div class="navbar-form navbar-right">
-                <ul class="nav navbar-nav">
-
-                    
-                    <li><a href="Customer_Profile.php">Profile </a></li>
-                    <li><a href="Customer_Dash.php">Home </a></li>
-                    <li>  <a href="My_jobs.php">Back</a></li>
-                    <li><a href="Customer_LogOut.php">LogOut </a></li>
+        </div>  
+        </nav>
 
 
-                </ul>
-
-            </div>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
-
-
-<table class="table-condensed">
+<br><br><br>
+<div class="container" align="center">
+<table class="table-light" id="table0">
  <tr>
-   <th>Job Name: </th>
+   <th>&nbsp &nbsp  Job Name: </th>
    <td><?php echo $data->getJObName(); ?></td>
  </tr>
  <tr>
-   <th>Location: </th>
+   <th>&nbsp &nbsp  Location: </th>
    <td><?php echo $data->getLoc(); ?></td>
  </tr>
  <tr>
-   <th>Discription: </th>
+   <th>&nbsp &nbsp  Discription: </th>
    <td><?php echo $data->getDescrip(); ?></td>
  </tr>
  <tr>
-   <th>Expected Cost: </th>
+   <th>&nbsp &nbsp  Expected Cost: </th>
    <td><?php echo $data->getEcost(); ?></td>
  </tr>
  <tr>
-   <th>Start Date: </th>
+   <th>&nbsp &nbsp  Start Date: </th>
    <td><?php echo $data->getSdate(); ?></td>
  </tr>
  <tr>
-   <th>End Date: </th>
+   <th>&nbsp &nbsp  End Date: </th>
    <td><?php echo $data->getEdate(); ?></td>
  </tr>
 
  </table>
+</div>
+ <br><br><br>
+
+ <div class="container" id="job_list">
  <?php $result = estimate::view_c_estimate($db,$apid);?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</div>
+
+
+
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 </body>

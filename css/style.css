@@ -6,14 +6,14 @@
         font-size: 40px;
         text-transform: uppercase;
         font-weight: 700;
-        color: #ffc001;
+        color: black;
         margin: 0px;
     }
     
     #form-container {
-        background-color: #2c3e50;
+        background-color: whitesmoke;
         padding: 30px 20px;
-        border-radius: 3px;
+        border: 1px;
     }
     
     .booking-form .form-group {
@@ -22,14 +22,17 @@
     }
     
     .booking-form .form-control {
-        background-color: #f5f5f5;
-        border: none;
+        border: 1px;
         height: 45px;
-        border-radius: 3px;
-        -webkit-box-shadow: none;
-        box-shadow: none;
+        -webkit-box-shadow: 1px;
+        box-shadow: 1px;
         font-weight: 400;
         color: #101113;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     }
     
     .booking-form .form-control::-webkit-input-placeholder {
@@ -75,7 +78,7 @@
     }
     
     .booking-form .form-label {
-        color: #fff;
+        color: black;
         font-size: 12px;
         font-weight: 400;
         margin-bottom: 5px;
@@ -84,21 +87,13 @@
     }
     
     .booking-form .submit-btn {
-        color: #101113;
-        background-color: #ffc001;
+        color: whitesmoke;
         font-weight: 700;
         height: 50px;
         border: none;
         width: 100%;
         display: block;
-        border-radius: 3px;
         text-transform: uppercase;
-    }
-    
-    body {
-        background: url(Images/YinYang.jpg) no-repeat;
-        width: 100%;
-        height: 782px;
     }
     
     .form-container {
@@ -162,4 +157,34 @@
     
     #h {
         color: whitesmoke;
+    }
+    
+    .form-container {
+        padding: 50px 60px;
+        margin-top: 10vh;
+        -webkit-box-shadow: -1px 2px 61px 12px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -1px 2px 61px 12px rgba(0, 0, 0, 0.75);
+        box-shadow: -1px 2px 61px 12px rgba(0, 0, 0, 0.75);
+        color: black;
+    }
+    
+    #signup_btn {
+        background-color: royalblue;
+    }
+    
+    #table0 {
+        width: 300px;
+        border: 1px;
+        background-color: #f2f2f2;
+        -webkit-box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.48);
+        -moz-box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.48);
+        box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.48);
+        background: rgba(237, 237, 237, 1);
+        background: -moz-linear-gradient(left, rgba(237, 237, 237, 1) 0%, rgba(246, 246, 246, 1) 53%, rgba(255, 255, 255, 1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(237, 237, 237, 1)), color-stop(53%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+        background: -webkit-linear-gradient(left, rgba(237, 237, 237, 1) 0%, rgba(246, 246, 246, 1) 53%, rgba(255, 255, 255, 1) 100%);
+        background: -o-linear-gradient(left, rgba(237, 237, 237, 1) 0%, rgba(246, 246, 246, 1) 53%, rgba(255, 255, 255, 1) 100%);
+        background: -ms-linear-gradient(left, rgba(237, 237, 237, 1) 0%, rgba(246, 246, 246, 1) 53%, rgba(255, 255, 255, 1) 100%);
+        background: linear-gradient(to right, rgba(237, 237, 237, 1) 0%, rgba(246, 246, 246, 1) 53%, rgba(255, 255, 255, 1) 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff', GradientType=1);
     }
