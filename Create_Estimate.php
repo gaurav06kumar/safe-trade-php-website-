@@ -106,45 +106,6 @@ if (isset($_POST['p_est'])) {
 
 
 
-<!--
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-
-        <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-
-                <span class="sr-only"></span>
-
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-
-            </button>
-
-            <a class="pull-left"><img src="Images/Logo.png" width="60px" height="60px"></a>
-            <a class="navbar-brand" href="#">&nbsp Safe Trade</a>
-
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div class="navbar-form navbar-right">
-                <ul class="nav navbar-nav">
-
-                    <li><a href="My_Estimate.php">My Estimate </a></li>
-                    <li><a href="Trader_Profile.php">Profile </a></li>
-                    <li><a href="Trader_Dash.php">Back </a></li>
-                    <li><a href="Trader_LogOut.php">LogOut </a></li>
-
-
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</nav> -->
-
-
 
 
 <br><br><br>

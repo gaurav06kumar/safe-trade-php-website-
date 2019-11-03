@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
 
 							}
 					?>
-					<h1>Trader LogIn</h1>
+					<h2>Trader LogIn</h2>
 
 					<div class="form-group">
 						<label for="email">E-mail</label>

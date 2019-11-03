@@ -142,7 +142,7 @@ if (isset($_POST['signup'])){
 
 					?>
 
-					<h1>Customer Registration</h1>
+					<h2>Customer Registration</h2>
 
 					<div class="form-group">
 						<label for="fname">Full Name</label>

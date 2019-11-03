@@ -110,7 +110,7 @@ if (isset($_POST['submit'])) {
 
 							}
 					?>
-					<h1>Customer LogIn</h1>
+					<h2>Customer LogIn</h2>
 
 					<div class="form-group">
 						<label for="email">E-mail</label>
