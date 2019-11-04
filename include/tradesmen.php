@@ -25,7 +25,7 @@
 		public static function reg_user($db,$name,$username,$password,$email){
 			$password = md5($password);
 			//checking if the username or email is available in db
-			$query = "SELECT * FROM tradesmeninfo WHERE T_username='$username' OR T_email='$email'";
+			$query = "SELECT * FROM tradesmeninfo WHERE T_username='$username' and T_email='$email'";
 
 			$result = $db->query($query) or die($db->error);
 

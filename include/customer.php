@@ -1,6 +1,6 @@
 
 <?php
-//this class contains the information of customer user information 
+//this class contains the information of customer user information
 	include_once 'db_config.php';
 	class User{
 
@@ -21,12 +21,12 @@
 
 		/*** for registration process ***/
 
-		public  static function reg_user($db,$name,$username,$password,$email){     
+		public  static function reg_user($db,$name,$username,$password,$email){
 			// create a new user record in cutomer table and if successful
 			// create a user object and return it otherwise return false;
 			 $result = false;
 			 $password = md5($password);
-			$query = "SELECT * FROM customerinfo WHERE uname='$username' OR uemail='$email'";
+			$query = "SELECT * FROM customerinfo WHERE uname='$username' and uemail='$email'";
 
 			$result = $db->query($query) or die($db->error);
 
@@ -63,7 +63,7 @@
 		public static  function check_login($db,$emailusername, $password){
         $password = md5($password);
 
-		$query = "SELECT * from customerinfo WHERE uemail='$emailusername' or uname='$emailusername' and upass='$password'";
+		$query = "SELECT * from customerinfo WHERE uemail='$emailusername' and upass='$password'";
 
 		$result = $db->query($query) or die($db->error);
 
@@ -88,7 +88,7 @@
 	}
 
 
-	public static function find($db, $id){ 
+	public static function find($db, $id){
 		// search customer table and locate record with id
 		// get that record and create customer object
 		// return customer object OR false if we cannot find it
@@ -110,7 +110,7 @@
 
 
 
- 
+
 
 
 	// ------- getter methods ----------
