@@ -1,4 +1,4 @@
-
+<!-- this page is for creating the estimate for the job -->
 <?php
 session_start();
 include_once 'include/job.php';
@@ -14,7 +14,7 @@ require_once('include\estimate.php');
 
 
 if (isset($_POST['p_est'])) {
-    //	extract($_POST);
+   
     
     $jid=$_GET['jid'];
     $tid= $_SESSION['TID'];

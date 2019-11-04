@@ -1,4 +1,5 @@
 <?php
+//this class contain the information of estimate of jobs 
  require_once("db_config.php");
 class estimate {
 
@@ -17,7 +18,7 @@ class estimate {
 
 
 
-public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted,$job){
+public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted,$job){ //passing the inforamtion as in form of argumnets and set the private property
 
   $this->eid = $eid;
   $this->jid = $jid;
@@ -32,6 +33,8 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 }
  public static function create_estimate($db, $jid, $tid, $lcost ,$tcost, $mcost, $totaltcost, $edate, $isAccepted,$job)
  {
+		// create a new estimate record in estimatedetails  table and if successful
+			// create a estimate object and return it otherwise return false;
    $query ="INSERT INTO estimate SET  jid='$jid', tid='$tid', Labour_Cost='$lcost', Material_Cost='$mcost', Transport_Cost='$tcost', Total_Cost='$totaltcost', Expiry_Date='$edate', IsAccepted='$isAccepted',job_name='$job' ";
 
 
@@ -50,6 +53,9 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
  public static function view_my_estimate($db,$tid)
  {  
+
+	//this function is for  tradesmen can see the posted estimation for all jobs 
+	//data is return in form of table 
 	$query ="SELECT `eid`, `jid`, `tid`,job_name, `Labour_Cost`, `Material_Cost`, `Transport_Cost`, `Total_Cost`, `Expiry_Date`, `IsAccepted` FROM `estimate` WHERE tid ='$tid' ";
 	 $result = $db->query($query) or die($db->error);
  
@@ -158,7 +164,8 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
 
  public static function view_c_estimate($db,$jid)
- {  
+ {  //this function is for  customer can see the posted estimation for all jobs 
+	//data is return in form of table 
 	$query ="SELECT * FROM `estimate` WHERE jid ='$jid' ";
 	 $result = $db->query($query) or die($db->error);
  
@@ -230,9 +237,9 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
 
  public static function find($db, $eid){
-	// search students table and locate record with id
-	// get that record and create student object
-	// return student object OR false if we cannot find it
+	// search estimatedetails table and locate record with id
+	// get that record and create estimate object
+	// return estimate object OR false if we cannot find it
 	$result = false;
 	$query = "SELECT * FROM estimate  WHERE eid = $eid";
 	  $result = $db->query($query) or die($db->error);
@@ -287,10 +294,10 @@ public function __construct(  $eid, $jid, $tid, $lcost ,$tcost, $mcost, $totaltc
 
 
 public static function accept($db,$eid){
-    // update estimate record in estimatedetails table and if user accepts the estimate 
-    // create a estimate object and return it otherwise return false;
+    // update estimate record in estimatedetails table and if customer accepts the estimate 
+     
     $result = false;
-    // $tcost=$lcost+$mcost;
+    
 	$isaccepted=1;
 	
 
@@ -301,7 +308,7 @@ public static function accept($db,$eid){
 	if ($result){
 	  if ($result->num_rows == 1){
 	
-		//"UPDATE `estimate` SET `IsAccepted`=1 WHERE eid ='$eid'";
+		 
 	  }
 	}
 

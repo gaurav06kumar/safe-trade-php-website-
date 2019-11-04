@@ -1,4 +1,4 @@
-
+<!-- this is the login page for tradesman -->
 <?php
 session_start();
 include_once 'include/tradesmen.php';
@@ -6,14 +6,14 @@ include_once 'include/db_config.php';
 
 
 if (isset($_POST['submit'])) {
-	//	extract($_POST);
+ 
   $emailusername=$_POST['email'];
    $password=$_POST['pass'];
 
 	    $login = tradesmen::check_login($db,$emailusername, $password);
 	    if (is_null($login)) {
 
-
+     //login failed 
         ?>
        <script type="text/javascript">
          window.open('Trader_LogIN.php?ss=0','_self');
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
 	    } else {
 
-
+         //login sucsses
 
          ?>
     		 <script type="text/javascript">

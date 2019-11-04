@@ -1,3 +1,4 @@
+<!-- this page is cutomer dashboard where cutomer can see all the posted jobs including his own job -->
 <?php
 session_start();
 require_once('include/customer.php');
@@ -8,7 +9,7 @@ require_once('include/db_config.php');
 
 $uid = $_SESSION['uid'];
  $result=User::find($db,$uid);
- $name=$result->getName();
+ $name=$result->getName();  //calling the getter name function   
 
 
 
@@ -67,13 +68,13 @@ $uid = $_SESSION['uid'];
 
 <div class="container" align="center">
 
-  <h1 id="h">Welcome <?php  echo $name; ?></h1>
+  <h1 id="h">Welcome <?php  echo $name; ?></h1>   <!-- printing the cutomer name  -->
 
 
 </div>
 
 <div class="container" id="job_list">
-        <?php JOb::view_all_Cjob($db);?>
+        <?php JOb::view_all_Cjob($db);?><!-- calling the   function for jobs  -->
 
     </div>
 

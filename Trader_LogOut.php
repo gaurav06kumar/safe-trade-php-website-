@@ -1,3 +1,4 @@
+<!-- this is the logout page for tradesman -->
 <?php
 session_start();
 unset($_SESSION['TID']);

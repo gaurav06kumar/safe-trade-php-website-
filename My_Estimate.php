@@ -1,3 +1,4 @@
+<!-- this page is shows all the estimate that tradesman posted for the jobs and tradesman can delete the estimate also  -->
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +69,7 @@ require_once('include/db_config.php');
  
 
 if ( true) {
-	//	extract($_POST);
+ 
 
      $id=$_SESSION['TID'];
 

@@ -1,19 +1,19 @@
-
+<!--  this is login customer page  -->
 <?php
 session_start();
 include_once 'include/customer.php';
 include_once 'include/db_config.php';
 
 
-//$user = new User();
+ 
 
 if (isset($_POST['submit'])) {
-	//	extract($_POST);
+ 
   $emailusername=$_POST['email'];
    $password=$_POST['pass'];
 	    $login = User::check_login($db,$emailusername, $password);
 	    if (is_null($login)) {
-
+           //failed to login 
          ?>
         <script type="text/javascript">
           window.open('Customer_LogIN.php?ss=0','_self');
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 
 	    } else {
 
-
+   //login succsess
          ?>
           <script type="text/javascript">
            window.open('Customer_Dash.php','_self');

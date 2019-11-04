@@ -1,3 +1,4 @@
+<!-- logout the customer  -->
 <?php
 session_start();
 unset($_SESSION['uid']);

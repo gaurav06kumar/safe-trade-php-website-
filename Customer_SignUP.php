@@ -1,24 +1,19 @@
+<!-- customer signup page  -->
 <?php
 include_once 'include/customer.php';
 require_once('include/db_config.php');
-//$user = new User();
-
-// Checking for user logged in or not
-    /*if (!$user->get_session())
-    {
-       header("location:index.php");
-    }*/
+ 
 if (isset($_POST['signup'])){
-        //extract($_POST);
+     
         $fullname=$_POST['fname'];
         $uname=$_POST['Uname'];
         $email=$_POST['email'];
         $upass= $_POST['pass'];
-      //  $user = User::create($mysqli, $_POST['name'], $_POST['studentId'], $_POST['email'], $_POST['dateOfBirth']);
+     
 
         $register = User::reg_user($db,$fullname, $uname, $upass, $email);
         if (is_null($register)) {
-            // Registration Success
+            // Registration failed
 
 
             ?>
@@ -39,10 +34,10 @@ if (isset($_POST['signup'])){
       </script>
       <?php
 
-      // code...
+       
     }
         else {
-          //echo "login";
+           // Registration Success
 
 
           ?>

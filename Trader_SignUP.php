@@ -1,12 +1,9 @@
+<!-- this is signup page for tradesman    -->
 <?php
 include_once 'include/tradesmen.php';
 require_once('include/db_config.php');
 
-// Checking for user logged in or not
-    /*if (!$user->get_session())
-    {
-       header("location:index.php");
-    }*/
+ 
 if (isset($_POST['signup'])){
         //extract($_POST);
         $fullname=$_POST['fname'];

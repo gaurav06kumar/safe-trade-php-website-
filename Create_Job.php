@@ -1,3 +1,4 @@
+<!-- this page is for crating  a job  -->
 <?php
 session_start();
 include_once 'include/job.php';

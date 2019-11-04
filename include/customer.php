@@ -1,4 +1,6 @@
+
 <?php
+//this class contains the information of customer user information 
 	include_once 'db_config.php';
 	class User{
 
@@ -9,7 +11,7 @@
  private $email="";
 
 
- public function __construct($uid,$name,$username,$password,$email){
+ public function __construct($uid,$name,$username,$password,$email){     //passing the inforamtion as in form of argumnets and set the private property
 	 $this->uid = $uid;
 	 $this->fname = $name;
 	 $this->username = $username;
@@ -19,10 +21,11 @@
 
 		/*** for registration process ***/
 
-		public  static function reg_user($db,$name,$username,$password,$email){
-			// create a new student record in students table and if successful
-			// create a student object and return it otherwise return false;
+		public  static function reg_user($db,$name,$username,$password,$email){     
+			// create a new user record in cutomer table and if successful
+			// create a user object and return it otherwise return false;
 			 $result = false;
+			 $password = md5($password);
 			$query = "SELECT * FROM customerinfo WHERE uname='$username' OR uemail='$email'";
 
 			$result = $db->query($query) or die($db->error);
@@ -38,7 +41,7 @@
 				if($result)
 				{
 					$id = $db->insert_id;
-					$user = new User($id,$name,$username,$password,$email);
+					$user = new User($id,$name,$username,$password,$email); //passing the value to the constructor
 		      $result = $user;
 				}
 				 return $result;
@@ -58,7 +61,7 @@
 
 	/*** for login process ***/
 		public static  function check_login($db,$emailusername, $password){
-        //$password = md5($password);
+        $password = md5($password);
 
 		$query = "SELECT * from customerinfo WHERE uemail='$emailusername' or uname='$emailusername' and upass='$password'";
 
@@ -72,7 +75,7 @@
 
 
 
-			$user = new User($user_data['uid'],$user_data['fullname'],$user_data['uname'],$user_data['upass'],$user_data['uemail']);
+			$user = new User($user_data['uid'],$user_data['fullname'],$user_data['uname'],$user_data['upass'],$user_data['uemail']); //passing the value to the constructor
 			$result = $user;
 
 	     $_SESSION['uid'] = $user_data['uid'];
@@ -85,10 +88,10 @@
 	}
 
 
-	public static function find($db, $id){
-		// search students table and locate record with id
-		// get that record and create student object
-		// return student object OR false if we cannot find it
+	public static function find($db, $id){ 
+		// search customer table and locate record with id
+		// get that record and create customer object
+		// return customer object OR false if we cannot find it
 		$result = false;
 		$query = "SELECT * FROM customerinfo WHERE uid = $id";
 			$result = $db->query($query) or die($db->error);

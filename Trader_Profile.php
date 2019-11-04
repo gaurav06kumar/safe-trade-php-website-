@@ -1,3 +1,4 @@
+<!-- this page is tradesman profile having all informaton   -->
 <?php
 session_start();
 require_once('include/tradesmen.php');
@@ -67,6 +68,7 @@ $result = tradesmen::find($db,$tid);
             <div class="row">
                 <div class="col-lg-3 ml-auto text-center mb-5 mb-lg-0"></div>
                 <div class="col-lg-2 ml-auto text-center mb-5 mb-lg-0">
+                <!-- calling the getter function for tradesman information -->
                 <h5>Trader Name</h5>
                 <div><?php echo $result->getName(); ?></div>
                 </div>

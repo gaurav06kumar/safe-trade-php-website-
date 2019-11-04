@@ -1,3 +1,7 @@
+<!-- this page contains estimates for the job that cutomer posted  
+     and cutomer can accepts estimate for posted jobs 
+-->
+
 <?php
 session_start();
 require_once('include/job.php');
@@ -64,6 +68,7 @@ $data=Job::find($db, $apid);
 <br><br><br>
 <div class="container" align="center">
 <table class="table-light" id="table0">
+<!-- calling the getter function for job  information -->
  <tr>
    <th>&nbsp &nbsp  Job Name: </th>
    <td><?php echo $data->getJObName(); ?></td>
@@ -94,7 +99,7 @@ $data=Job::find($db, $apid);
  <br><br><br>
 
  <div class="container" id="job_list">
- <?php $result = estimate::view_c_estimate($db,$apid);?>
+ <?php $result = estimate::view_c_estimate($db,$apid);?> <!-- calling the   function for estimate information -->
 </div>
 
 

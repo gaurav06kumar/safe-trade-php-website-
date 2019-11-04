@@ -1,10 +1,11 @@
+<!-- this page is shows all the job details for customer  -->
 <?php
 session_start();
 require_once('include/job.php');
 include_once 'include/job.php';
 $apid = $_GET['jid'];
 $data=Job::find($db, $apid);
-//$data=Job::view_job($db,$apid);
+ 
 
 
  ?>
@@ -78,7 +79,7 @@ $data=Job::find($db, $apid);
 
    <div class="jumbotron col-md-6 col-sm-6 col-xs-12" id="job_list">
 
-     <!-- appointment details -->
+     <!-- job details -->
      
  <table class="table-condensed" id="table0">
  <tr>

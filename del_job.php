@@ -1,4 +1,4 @@
-
+<!-- this page is call when customer click on delete job button  -->
 <?php 
 session_start();
 include_once 'include/job.php';

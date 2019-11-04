@@ -1,4 +1,6 @@
 <?php
+//this class contains the information of customer tradesman information 
+
 	require_once("db_config.php");
 	class tradesmen{
   public $tid =null;
@@ -9,7 +11,7 @@
 
 
 
-
+    //passing the inforamtion as in form of argumnets and set the private property
 	public function __construct($tid,$name,$username,$password,$email){
  	 $this->tid = $tid;
  	 $this->tname = $name;
@@ -21,8 +23,7 @@
 		/*** for registration process ***/
 
 		public static function reg_user($db,$name,$username,$password,$email){
-			//echo "k";
-
+			$password = md5($password);
 			//checking if the username or email is available in db
 			$query = "SELECT * FROM tradesmeninfo WHERE T_username='$username' OR T_email='$email'";
 
@@ -56,7 +57,7 @@
 
 	/*** for login process ***/
 		public static function check_login($db,$emailusername, $password){
-      //  $password = md5($password);
+        $password = md5($password);
 
 		$query = "SELECT * from tradesmeninfo WHERE T_email='$emailusername'   and T_pass='$password'";
 

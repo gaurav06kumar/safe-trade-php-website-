@@ -1,3 +1,4 @@
+<!-- this page is tradesman dashboard where tradesman can see all the posted jobs  -->
 <?php
 session_start();
 include_once 'include/tradesmen.php';

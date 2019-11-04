@@ -1,4 +1,4 @@
-
+<!-- this page is shows all the job that  customer posted   -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,11 +67,11 @@ require_once('include/db_config.php');
  
 
 if ( true) {
-	//	extract($_POST);
+ 
 
      $id=$_SESSION['uid'];
 
-	     $result = Job::view_my_job($db,$id);
+	     $result = Job::view_my_job($db,$id);  
 
 	}
 ?>

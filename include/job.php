@@ -1,4 +1,5 @@
 <?php
+//this class contain the information  of jobs 
  require_once("db_config.php");
 class Job {
 
@@ -13,7 +14,7 @@ class Job {
 
 
 
-public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid,$jid){
+public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid,$jid){ //passing the inforamtion as in form of argumnets and set the private property
   $this->jobname = $jname;
   $this->loc = $loc;
   $this->descrip = $descrip;
@@ -25,7 +26,9 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 }
  public static function createjob($db,$jname ,$loc, $descrip, $estcost, $sdate, $edate,$uid)
  {
-
+	// create a new job record in job  table and if successful
+	// create a job object and return it otherwise return false;
+  
      $query ="INSERT INTO job SET job_name='$jname', location='$loc', Discription='$descrip', Expected_Cost='$estcost' ,Start_Date='$sdate'  ,End_Date='$edate',uid='$uid'";
 
 
@@ -43,11 +46,12 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
  }
 
  public static function view_my_job($db,$uid)
- {
+ {//this function is for  customer can see the posted job 
+	//data is return in form of table 
 	 $query = "SELECT  `jid` ,`job_name`, `location`, `Discription`, `Expected_Cost`, `Start_Date`, `End_Date` FROM `job` WHERE uid='$uid'";
-	 //$query = "SELECT * FROM job";
+ 
 	 $result = $db->query($query) or die($db->error);
-	//$result->execute();
+ 
 
 		 ?>
 		 <table class = "table table-hover">
@@ -112,10 +116,10 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 
   public  static function view_all_Cjob($db)
   {
-
+//this function is for jobs shows in customer dashborad 
  	 $query = "SELECT * FROM job";
  	 $result = $db->query($query) or die($db->error);
- 	//$result->execute();
+ 	 
 
  		 ?>
  		 <table class = "table table-hover">
@@ -131,7 +135,7 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
  		 </thead>
  		 <tbody>
  		 <?php
- //  $row = $qresult->fetch_assoc(); fetch(PDO::FETCH_ASSOC)
+ 
  		 while($res = $result->fetch_assoc())
  		 {
 
@@ -159,10 +163,10 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
   }
  public  static function view_all_Tjob($db)
  {
-
+//this function is for shows    jobs 
 	 $query = "SELECT * FROM job";
 	 $result = $db->query($query) or die($db->error);
-	//$result->execute();
+ 
 
 		 ?>
 		 <table class = "table table-hover">
@@ -178,7 +182,7 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 		 </thead>
 		 <tbody>
 		 <?php
-//  $row = $qresult->fetch_assoc(); fetch(PDO::FETCH_ASSOC)
+ 
 		 while($res = $result->fetch_assoc())
 		 {
 
@@ -207,9 +211,9 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 
 
  public static function find($db, $id){
-   // search students table and locate record with id
-   // get that record and create student object
-   // return student object OR false if we cannot find it
+   // search job table and locate record with id
+   // get that record and create job object
+   // return job object OR false if we cannot find it
    $result = false;
    $query = "SELECT * FROM job WHERE jid = $id";
      $result = $db->query($query) or die($db->error);
@@ -228,7 +232,7 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 
 
  public static function delete($db,$jid){
-	//delete estimate record in estimatedetails table and if successful 
+	//delete job record in job table and if successful 
 	// return true otherwise return false;
   
   
@@ -240,10 +244,10 @@ public function __construct( $jname ,$loc, $descrip, $estcost, $sdate, $edate,$u
 	if ($result){
 	  if ($result->num_rows == 1){
 		$row = $result->fetch_assoc();
-		//$_SESSION['CID']=$row['tid'];
+	 
 	  }
 	}
-	$result = false;  //   $query ="DELETE FROM `estimate` WHERE eid = '$id'" ;
+	$result = false;   
 	$query ="DELETE FROM `job` WHERE jid = '$jid'" ;
 	$result = $db->query($query) or die($db->error);
    

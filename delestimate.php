@@ -1,3 +1,4 @@
+<!-- this page is call when tradesman click on delete estimate  button  -->
 <?php 
 session_start();
 include_once 'include/estimate.php';

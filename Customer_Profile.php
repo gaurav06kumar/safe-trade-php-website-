@@ -1,3 +1,4 @@
+<!-- this page is customer profile having all informaton   -->
 <?php
 session_start();
 require_once('include/customer.php');
@@ -8,7 +9,7 @@ require_once('include/customer.php');
 $uid = $_SESSION['uid'];
 
  $result=User::find($db,$uid);
- //$data=User::view_profile($db,$uid);
+ 
 
 
 ?>
@@ -70,6 +71,7 @@ $uid = $_SESSION['uid'];
                 <br><br>
             
             <div class="row">
+            <!-- calling the getter function for customer information -->
                 <div class="col-lg-3 ml-auto text-center mb-5 mb-lg-0"></div>
                 <div class="col-lg-2 ml-auto text-center mb-5 mb-lg-0">
                 <h5>Trader Name</h5>
